@@ -1,5 +1,16 @@
 /* /*Style for Application here (: */
+
 body {
     background-color: #EDEDED;
     font-family: 'Quicksand', sans-serif;
+}
+
+#quote-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.timer {
+    text-align: right;
+    padding: 20px;
 }

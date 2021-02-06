@@ -34,7 +34,7 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
+fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

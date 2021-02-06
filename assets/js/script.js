@@ -1,51 +1,53 @@
 /// API Code for Trump Quote Generator
+function callAPIs() {
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
 
-fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-        trumpQuote(result)
-    })
-    .catch(error => console.log('error', error));
+    fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            trumpQuote(result)
+        })
+        .catch(error => console.log('error', error));
 
-// API Code for Kanye Quote Generator
+    // API Code for Kanye Quote Generator
 
-var myHeaders = new Headers();
-myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
 
-var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-};
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
 
-fetch("https://api.kanye.rest/", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-        kanyeQuote(result)
-    })
-    .catch(error => console.log('error', error));
+    fetch("https://api.kanye.rest/", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            kanyeQuote(result)
+        })
+        .catch(error => console.log('error', error));
 
 
-// API Code for Ron Swanson Quote Generator
+    // API Code for Ron Swanson Quote Generator
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
 
-fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-        swansonQuote(result)
-    })
-    .catch(error => console.log('error', error));
-
+    fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            swansonQuote(result)
+        })
+        .catch(error => console.log('error', error));
+}
 // 3 global variables 
+callAPIs();
 
 var donaldQuote = "";
 var westQuote = "";
@@ -55,8 +57,9 @@ function trumpQuote(trumpData) {
     trumpData = JSON.parse(trumpData);
     console.log(trumpData.message);
     donaldQuote = trumpData.message;
-    console.log("donald quote", donaldQuote);
+    console.log("donald quote-1", donaldQuote);
 }
+console.log("donald quote-2", donaldQuote);
 
 function kanyeQuote(kanyeData) {
     kanyeData = JSON.parse(kanyeData);
@@ -101,10 +104,10 @@ function swansonQuote(swansonData) {
 // the user answers
 
 // if the user chooses correctly, the amount of time on the timer is added 
-// to their score
+// to their score and a message pops up saying correct
 
 // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
-// deducted from the timer
+// deducted from the timer and a message pops up saying incorrect
 
 // after a user selects an answer, display the next quote.
 

@@ -7,7 +7,9 @@ var requestOptions = {
 
 fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+        trumpQuote(result)
+    })
     .catch(error => console.log('error', error));
 
 // API Code for Kanye Quote Generator
@@ -23,7 +25,9 @@ var requestOptions = {
 
 fetch("https://api.kanye.rest/", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+        kanyeQuote(result)
+    })
     .catch(error => console.log('error', error));
 
 
@@ -36,5 +40,96 @@ var requestOptions = {
 
 fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+        swansonQuote(result)
+    })
     .catch(error => console.log('error', error));
+
+// 3 global variables 
+
+var donaldQuote = "";
+var westQuote = "";
+var ronQuote = "";
+
+function trumpQuote(trumpData) {
+    trumpData = JSON.parse(trumpData);
+    console.log(trumpData.message);
+    donaldQuote = trumpData.message;
+    console.log("donald quote", donaldQuote);
+}
+
+function kanyeQuote(kanyeData) {
+    kanyeData = JSON.parse(kanyeData);
+    console.log(kanyeData.quote);
+
+}
+
+function swansonQuote(swansonData) {
+    swansonData = JSON.parse(swansonData);
+    console.log(swansonData[0]);
+
+}
+
+
+// WELCOME PAGE
+// When page loads display welcome message for the user
+
+// score and timer are not visible at this point
+
+// OPTIONAL FUNCTIONALITY: Add a quote from each of the quoted on the welcome screen
+// to give users an example of the game.
+
+// button to display high scores which are saved in local storage located in the
+// top right of the nav bar
+
+// footer will contain names of the quoted and when clicked will
+// take you to their wikipedia page
+
+// display a button on screen that when clicked will start the game
+
+
+
+//MAIN PAGE
+// When page loads, score should be set to 0 and timer should start
+// counting down from 60 seconds
+
+// first quote should be displayed
+
+// when page loads, their pictures and names should be displayed 
+
+// when clicked, the picture or button (maybe a screenshot?) will determine what
+// the user answers
+
+// if the user chooses correctly, the amount of time on the timer is added 
+// to their score
+
+// if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
+// deducted from the timer
+
+// after a user selects an answer, display the next quote.
+
+// OPTIONAL FUNCTIONALITY: Exclude quotes that have already been displayed...
+
+// when timer reaches 0, game ends and high score screen opens
+
+// footer will contain names of the quoted but the links will not work?
+
+
+
+// HIGH SCORE SCREEN
+// timer and score should be hidden at this point
+
+// when page loads, display the current score with user input below the 
+// score to give them the option to enter their name and save score.
+
+// when the user clicks "save score" button their score and name is instantly displayed
+// on the high score list
+
+// when high score page loads, names and scores from local storage should 
+// be displayed on the page. 
+
+// somewhere on the page the user is prompted to either go back to the
+// welcome/rules page or to restart the game.
+
+// footer will contain names of the quoted and when clicked will
+// take you to their wikipedia page

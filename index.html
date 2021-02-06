@@ -8,37 +8,63 @@
     <title>Who Said It?</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/CSS/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
 
 
 </head>
 
 <body>
-    <div class="container">
+
+    <!-- Navigation Bar  -->
+    <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="#">Who Said It?</a></li>
+                <li><a href="#">High Scores</a></li>
+                <!-- <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="container">
         <h1>Who Said It?</h1>
 
-    </div>
+    </div> -->
     <div class="container">
 
         <!-- Welcome box -->
-        <div id="welcome-box">
-            <div class="grid-x">
-                <!-- welcome text -->
-                <div class="cell"></div>
-                <div class="cell">full width cell</div>
+        <!-- <div id="welcome-box">
+            <div class="grid-x"> -->
+        <!-- welcome text -->
+        <!-- <div class="cell hidden">This is where the welcome text will go</div>
             </div>
-        </div>
+        </div> -->
 
         <!-- game box -->
         <div id="game-box">
-            <!-- timer -->
+            <div class="grid-x">
+                <div class="cell medium-3">
 
-            <!-- score -->
+                </div>
 
-            <!-- quote box -->
+                <div class="cell medium-6" id="quote-box">
+                    <div class="cell">This is where the quotes will go</div>
+                </div>
 
+                <!-- quote box -->
+                <div class="cell medium-3">
+                    <!-- score -->
+                    <div class="grid-x">
+                        <div class="cell medium-12 timer">Score</div>
+                    </div>
+                    <!-- timer -->
+                    <div class="grid-x">
+                        <div class="cell medium-12 timer">Timer</div>
+                    </div>
+                </div>
+            </div>
             <!-- answer choices  -->
             <div class="grid-x">
                 <div class="cell medium-4"><img src="assets/images/Donald_Trump_-_Caricature_(25504718058).jpg"></div>
@@ -73,11 +99,6 @@
 
 
     </div>
-
-
-
-
-    <div>Jenn great at branches now, nbd</div>
 
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>

@@ -95,6 +95,43 @@ function swansonQuote(swansonData) {
 //MAIN PAGE
 // When page loads, score should be set to 0 and timer should start
 // counting down from 60 seconds
+var timerEl = document.querySelector(".timer");
+var secondsLeft = 60;
+var score = 0;
+
+function setTime() {
+    console.log("Start button click");
+    secondsleft = 60;
+    // reset all variables for replaying the game
+    // currentQuestion = 0; 
+    // initials = "";
+
+    // call function to hide welcome page
+    // call function to display 
+
+    // Sets interval in variable
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timerEl.innerHTML = secondsLeft + " seconds left.";
+        // answerResultEl.innerHTML = "";
+
+        if (secondsLeft <= 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to end game
+
+        }
+
+    }, 1000);
+
+
+    // call function to display the first/next question
+
+};
+
+setTime();
+
+
 
 // first quote should be displayed
 
@@ -111,6 +148,11 @@ function swansonQuote(swansonData) {
 
 // if the user chooses correctly, the amount of time on the timer is added 
 // to their score and a message pops up saying correct
+if (correct answer) {
+    score = score + secondsLeft;
+    console.log("Your score is " + score);
+    scoreEl.innerHTML = "Your score is " + score;
+}
 
 // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
 // deducted from the timer and a message pops up saying incorrect

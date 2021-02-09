@@ -31,7 +31,7 @@ This application will run in any web browser.
 ​
 
 ## Contributors
-Jenn Greiner, Justin Westmoreland, Gabe Quaakelar, Florencia Ceballos
+Jenn Greiner, Justin Westmoreland, Gabe Quakkelaar, Florencia Ceballos
 ​
 ## Database Information 
 ​

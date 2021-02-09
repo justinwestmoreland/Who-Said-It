@@ -21,8 +21,8 @@
     <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li><a href="#">Who Said It?</a></li>
-                <li><a href="#">High Scores</a></li>
+                <li><a href="index.html">Who Said It?</a></li>
+                <li><a href="highscore.html">High Scores</a></li>
                 <!-- <li><a href="#">Two</a></li>
                 <li><a href="#">Three</a></li> -->
             </ul>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="cell medium-6" id="quote-box">
-                    <div class="cell">This is where the quotes will go</div>
+                    <div class="cell" id="quote" >This is where the quotes will go</div>
                 </div>
 
                 <!-- quote box -->
@@ -75,6 +75,17 @@
 
         <!-- score screen -->
         <div id="score-box">
+
+            <div class= "container">
+                <h1> You Scored: <span id= "final-score"></span></h1>
+                
+            <input class="name-input" placeholder="Your name here" size="21" type="text">
+            <button class="submit-button">Submit</button>
+            <button class="play-again-button">Play Again!</button>
+            </div>
+            <div class="container" id="score-history">
+                <!-- save and display recent scores submitted -->
+            </div>
             <!-- save score -->
 
             <!-- high scores -->

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Said It?</title>
     <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css">
@@ -22,7 +23,7 @@
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><a href="index.html">Who Said It?</a></li>
-                <li id="high-scores-display"><a href="highscore.html">High Scores</a></li>
+                <li id="high-scores-display">High Scores</li>
                 <!-- <li><a href="#">Two</a></li>
                 <li><a href="#">Three</a></li> -->
             </ul>
@@ -37,8 +38,11 @@
         <!-- Welcome box -->
         <div id="welcome-box">
             <div class="grid-x">
-                <div class="cell">We all know Donald Turmp, Kanye West, and Ron Swanson - but how well do you remember what they've said? Play Who Said It and find out!<br>Click on a picture to guess who said it. The remaining time will be added to your score. The game
-                    ends when the timer runs out, but be careful! Incorrect answers deduct 10 seconds from the timer! Play again and try to beat your high score!
+                <div class="cell">We all know Donald Trump, Kanye West, and Ron Swanson - but how well do you remember
+                    what they've said? Play Who Said It and find out!<br>Click on a picture to guess who said it. The
+                    remaining time will be added to your score. The game
+                    ends when the timer runs out, but be careful! Incorrect answers deduct 10 seconds from the timer!
+                    Play again and try to beat your high score!
                 </div>
             </div>
             <div class="grid-x">
@@ -78,9 +82,9 @@
         </div>
 
         <!-- score screen -->
-        <div id="score-box">
+        <div>
 
-            <div class="container">
+            <div class="container" id="score-box">
                 <h1> You Scored: <span id="final-score"></span></h1>
 
                 <input id="name-input" placeholder="Your name here" size="21" type="text">
@@ -89,6 +93,7 @@
             </div>
             <div class="container" id="score-history">
                 <!-- save and display recent scores submitted -->
+                <button id="clear-scores">Clear highscores</button>
             </div>
             <!-- save score -->
 
@@ -100,7 +105,8 @@
     </div>
 
     <!-- Compressed JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
 

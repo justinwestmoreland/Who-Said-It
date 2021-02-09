@@ -10,6 +10,7 @@ function callAPIs() {
         .then(response => response.text())
         .then(result => {
             trumpQuote(result)
+            kanyeAPI()
         })
         .catch(error => console.log('error', error));
 
@@ -24,13 +25,15 @@ function callAPIs() {
         redirect: 'follow'
     };
 
-    fetch("https://api.kanye.rest/", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            kanyeQuote(result)
-        })
-        .catch(error => console.log('error', error));
-
+    function kanyeAPI() {
+        fetch("https://api.kanye.rest/", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                kanyeQuote(result)
+                swansonAPI()
+            })
+            .catch(error => console.log('error', error));
+    }
 
     // API Code for Ron Swanson Quote Generator
 
@@ -39,12 +42,14 @@ function callAPIs() {
         redirect: 'follow'
     };
 
-    fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            swansonQuote(result)
-        })
-        .catch(error => console.log('error', error));
+    function swansonAPI() {
+        fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                swansonQuote(result)
+            })
+            .catch(error => console.log('error', error));
+    }
 }
 // 3 global variables 
 callAPIs();
@@ -63,6 +68,7 @@ function arrayOfQuotes(data) {
 }
 
 function generateQuote() {
+    console.log("quote array", quoteArray);
     var finalQuote;
     var randomNumber = Math.floor(Math.random() * quoteArray.length);
     console.log(randomNumber);

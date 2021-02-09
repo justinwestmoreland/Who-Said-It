@@ -89,6 +89,12 @@ function swansonQuote(swansonData) {
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
+var playButton = document.querySelector('.play-button')
+// console.log(playButton);
+playButton.addEventListener('click', function () {
+    setTime();
+
+});
 
 
 
@@ -123,13 +129,10 @@ function setTime() {
         }
 
     }, 1000);
-
-
     // call function to display the first/next question
-
 };
 
-setTime();
+// setTime();
 
 
 
@@ -142,11 +145,11 @@ setTime();
 
 // if the user chooses correctly, the amount of time on the timer is added 
 // to their score and a message pops up saying correct
-if (correct answer) {
-    score = score + secondsLeft;
-    console.log("Your score is " + score);
-    scoreEl.innerHTML = "Your score is " + score;
-}
+// if (correct answer) {
+//     score = score + secondsLeft;
+//     console.log("Your score is " + score);
+//     scoreEl.innerHTML = "Your score is " + score;
+// }
 
 // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
 // deducted from the timer and a message pops up saying incorrect

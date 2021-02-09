@@ -36,12 +36,14 @@
     <div class="container">
 
         <!-- Welcome box -->
-        <!-- <div id="welcome-box">
-            <div class="grid-x"> -->
-        <!-- welcome text -->
-        <!-- <div class="cell hidden">This is where the welcome text will go</div>
+        <div id="welcome-box">
+            <div class="grid-x">
+                <div class="cell">This is where the welcome text will go</div>
             </div>
-        </div> -->
+            <div class="grid-x">
+                <button class="play-button">Play!</button>
+            </div>
+        </div>
 
         <!-- game box -->
         <div id="game-box">
@@ -51,7 +53,7 @@
                 </div>
 
                 <div class="cell medium-6" id="quote-box">
-                    <div class="cell" id="quote" >This is where the quotes will go</div>
+                    <div class="cell" id="quote">This is where the quotes will go</div>
                 </div>
 
                 <!-- quote box -->
@@ -77,12 +79,12 @@
         <!-- score screen -->
         <div id="score-box">
 
-            <div class= "container">
-                <h1> You Scored: <span id= "final-score"></span></h1>
-                
-            <input class="name-input" placeholder="Your name here" size="21" type="text">
-            <button class="submit-button">Submit</button>
-            <button class="play-again-button">Play Again!</button>
+            <div class="container">
+                <h1> You Scored: <span id="final-score"></span></h1>
+
+                <input id="name-input" placeholder="Your name here" size="21" type="text">
+                <button id="submit-button">Submit</button>
+                <button class="play-button">Play Again!</button>
             </div>
             <div class="container" id="score-history">
                 <!-- save and display recent scores submitted -->

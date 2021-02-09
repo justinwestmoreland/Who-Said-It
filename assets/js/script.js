@@ -73,27 +73,37 @@ function swansonQuote(swansonData) {
 
 }
 
+// Display box variables
+var welcomeBox = document.getElementById('welcome-box');
+var gameBox = document.getElementById('game-box');
+var scoreBox = document.getElementById('score-box');
 
 // WELCOME PAGE
+showWelcomeScreen();
 // When page loads display welcome message for the user
-
-// score and timer are not visible at this point
+function showWelcomeScreen() {
+    //hide all but welcome-box
+    // score and timer are not visible at this point
+    gameBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+};
 
 // OPTIONAL FUNCTIONALITY: Add a quote from each of the quoted on the welcome screen
 // to give users an example of the game.
 
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
+var highScoreButton = document.getElementById('high-score-display');
+highScoreButton.addEventListener('click', showHighScores())
+// call display scores
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
 var playButton = document.querySelector('.play-button')
-// console.log(playButton);
 playButton.addEventListener('click', function () {
     setTime();
-
 });
 
 
@@ -125,9 +135,7 @@ function setTime() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             // Calls function to end game
-
         }
-
     }, 1000);
     // call function to display the first/next question
 };

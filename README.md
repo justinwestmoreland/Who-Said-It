@@ -1,6 +1,4 @@
-# Project-1
-
-# Who Said It? | Jenn Greiner
+# Who Said It?
 
 ### Table of Contents:
 * [Deployed Site](#deployed-site)

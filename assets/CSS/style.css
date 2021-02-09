@@ -18,21 +18,21 @@ button {
     border-radius: 5px;
     margin: auto;
 }
-
 .timer,
 .score {
     text-align: right;
-    padding: 20px;
+    padding: 10px;
 }
 
-#welcome-box {
+/* #welcome-box {
     display: block;
 }
 
-#game-box {
+
+/* #game-box {
     display: none;
 }
 
 #score-box {
     display: none;
-}
+} */

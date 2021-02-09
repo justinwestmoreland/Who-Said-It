@@ -104,6 +104,7 @@ var highScoreButton = document.getElementById('high-scores-display');
 // highScoreButton.addEventListener('click', showHighScores())
 // call display scores
 
+
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
 
@@ -115,12 +116,17 @@ function showGameScreen() {
 };
 
 var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function() {
+playButton.addEventListener('click', function () {
     showGameScreen();
     setTime();
 });
 
-
+// hide welcome & socre screen, display game screen
+function showGameScreen() {
+    gameBox.style.display = 'block';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+};
 
 //MAIN PAGE
 // When page loads, score should be set to 0 and timer should start
@@ -140,7 +146,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -157,12 +163,6 @@ function setTime() {
 
 };
 
-var score = 0;
-var answer = 0; //random number used to select answer out of the array, then used to check for correct answer
-// call function to display the first/next question
-
-
-// setTime();
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -188,7 +188,7 @@ function displayQuote() {
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
-trumpImage.addEventListener("click", function(event) {
+trumpImage.addEventListener("click", function (event) {
     console.log("trump clicked");
     // answerResultEl.innerHTML = "";
 
@@ -214,7 +214,7 @@ trumpImage.addEventListener("click", function(event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function(event) {
+kanyeImage.addEventListener("click", function (event) {
     console.log("kanye clicked");
     // answerResultEl.innerHTML = "";
 
@@ -240,7 +240,7 @@ kanyeImage.addEventListener("click", function(event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function(event) {
+swansonImage.addEventListener("click", function (event) {
     console.log("swanson clicked");
     // answerResultEl.innerHTML = "";
 
@@ -273,9 +273,6 @@ swansonImage.addEventListener("click", function(event) {
 // when timer reaches 0, game ends and high score screen opens
 
 // footer will contain names of the quoted but the links will not work?
-
-
-setTime();
 
 
 // HIGH SCORE SCREEN

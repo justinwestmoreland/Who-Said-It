@@ -127,7 +127,7 @@ playButton.addEventListener('click', function () {
     setTime();
 });
 
-// hide welcome & socre screen, display game screen
+// hide welcome & score screen, display game screen
 function showGameScreen() {
     gameBox.style.display = 'block';
     welcomeBox.style.display = 'none';
@@ -140,6 +140,7 @@ function showGameScreen() {
 var timerEl = document.querySelector(".timer");
 var secondsLeft = 60;
 var score = 0;
+var answer = 0;
 
 function setTime() {
     console.log("Start button click");
@@ -168,7 +169,6 @@ function setTime() {
     displayQuote();
 
 };
-
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");

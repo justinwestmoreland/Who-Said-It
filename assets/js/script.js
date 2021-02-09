@@ -89,6 +89,12 @@ function swansonQuote(swansonData) {
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
+var playButton = document.querySelector('.play-button')
+// console.log(playButton);
+playButton.addEventListener('click', function () {
+    setTime();
+
+});
 
 
 
@@ -123,6 +129,7 @@ function setTime() {
         }
 
     }, 1000);
+<<<<<<< HEAD
 
     // call function to display the first/next question
     displayQuote();
@@ -131,6 +138,12 @@ function setTime() {
 
 var score = 0;
 var answer = 0; //random number used to select answer out of the array, then used to check for correct answer
+=======
+    // call function to display the first/next question
+};
+
+// setTime();
+>>>>>>> 1996325f9859c668bf3fa7ef10b5d80c0d864935
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -142,7 +155,20 @@ function displayQuote() {
     // when page loads, their pictures and names should be displayed 
 
 
+<<<<<<< HEAD
 }
+=======
+// when clicked, the picture or button (maybe a screenshot?) will determine what
+// the user answers
+
+// if the user chooses correctly, the amount of time on the timer is added 
+// to their score and a message pops up saying correct
+// if (correct answer) {
+//     score = score + secondsLeft;
+//     console.log("Your score is " + score);
+//     scoreEl.innerHTML = "Your score is " + score;
+// }
+>>>>>>> 1996325f9859c668bf3fa7ef10b5d80c0d864935
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers

@@ -52,25 +52,38 @@ callAPIs();
 var donaldQuote = "";
 var westQuote = "";
 var ronQuote = "";
+var quoteArray = [];
+
+
+function arrayOfQuotes(data) {
+    quoteArray.push(data);
+    if (quoteArray.length == 3) {
+        generateQuote()
+    }
+}
+
+function generateQuote() {
+    var finalQuote;
+    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    console.log(randomNumber);
+    finalQuote = quoteArray[randomNumber];
+    console.log(finalQuote);
+}
 
 function trumpQuote(trumpData) {
     trumpData = JSON.parse(trumpData);
-    console.log(trumpData.message);
     donaldQuote = trumpData.message;
-    console.log("donald quote-1", donaldQuote);
+    arrayOfQuotes(donaldQuote);
 }
-console.log("donald quote-2", donaldQuote);
 
 function kanyeQuote(kanyeData) {
     kanyeData = JSON.parse(kanyeData);
-    console.log(kanyeData.quote);
-
+    arrayOfQuotes(kanyeData.quote);
 }
 
 function swansonQuote(swansonData) {
     swansonData = JSON.parse(swansonData);
-    console.log(swansonData[0]);
-
+    arrayOfQuotes(swansonData[0]);
 }
 
 // Display box variables
@@ -102,7 +115,7 @@ function showGameScreen() {
 };
 
 var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function () {
+playButton.addEventListener('click', function() {
     showGameScreen();
     setTime();
 });
@@ -127,7 +140,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -175,7 +188,7 @@ function displayQuote() {
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
-trumpImage.addEventListener("click", function (event) {
+trumpImage.addEventListener("click", function(event) {
     console.log("trump clicked");
     // answerResultEl.innerHTML = "";
 
@@ -201,7 +214,7 @@ trumpImage.addEventListener("click", function (event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function (event) {
+kanyeImage.addEventListener("click", function(event) {
     console.log("kanye clicked");
     // answerResultEl.innerHTML = "";
 
@@ -227,7 +240,7 @@ kanyeImage.addEventListener("click", function (event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function (event) {
+swansonImage.addEventListener("click", function(event) {
     console.log("swanson clicked");
     // answerResultEl.innerHTML = "";
 

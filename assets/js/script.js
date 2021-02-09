@@ -124,32 +124,105 @@ function setTime() {
 
     }, 1000);
 
-
     // call function to display the first/next question
+    displayQuote();
 
 };
 
-setTime();
+var score = 0;
+var answer = 0; //random number used to select answer out of the array, then used to check for correct answer
+
+var trumpImage = document.getElementById("donaldTrump");
+var kanyeImage = document.getElementById("kanyeWest");
+var swansonImage = document.getElementById("ronSwanson");
+
+function displayQuote() {
+    // first quote should be displayed
+
+    // when page loads, their pictures and names should be displayed 
 
 
-
-// first quote should be displayed
-
-// when page loads, their pictures and names should be displayed 
+}
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
+trumpImage.addEventListener("click", function (event) {
+    console.log("trump clicked");
+    // answerResultEl.innerHTML = "";
 
-// if the user chooses correctly, the amount of time on the timer is added 
-// to their score and a message pops up saying correct
-if (correct answer) {
-    score = score + secondsLeft;
-    console.log("Your score is " + score);
-    scoreEl.innerHTML = "Your score is " + score;
-}
+    var userChoice = event.target.textContent;
+    var answerDisplayEl = document.createElement("h3");
+    // if the user chooses correctly, the amount of time on the timer is added 
+    // to their score and a message pops up saying correct
+    if (answer == 0) {
+        answerDisplayEl.textContent = "Correct";
+        score = score + secondsLeft;
+        console.log("Your score is " + score);
+        document.querySelector(".score").innerHTML = "Your score is " + score;
+    }
+    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
+    // deducted from the timer and a message pops up saying incorrect
+    // else { score = score - 10}
+    else {
+        secondsLeft = secondsLeft - 10;
+        answerDisplayEl.textContent = "Wrong";
+    }
 
-// if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
-// deducted from the timer and a message pops up saying incorrect
+    //Display "right" or "wrong" for user
+    // answerResultEl.append(answerDisplayEl);
+})
+
+kanyeImage.addEventListener("click", function (event) {
+    console.log("kanye clicked");
+    // answerResultEl.innerHTML = "";
+
+    var userChoice = event.target.textContent;
+    var answerDisplayEl = document.createElement("h3");
+    // if the user chooses correctly, the amount of time on the timer is added 
+    // to their score and a message pops up saying correct
+    if (answer == 0) {
+        answerDisplayEl.textContent = "Correct";
+        score = score + secondsLeft;
+        console.log("Your score is " + score);
+        document.querySelector(".score").innerHTML = "Your score is " + score;
+    }
+    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
+    // deducted from the timer and a message pops up saying incorrect
+    // else { score = score - 10}
+    else {
+        secondsLeft = secondsLeft - 10;
+        answerDisplayEl.textContent = "Wrong";
+    }
+
+    //Display "right" or "wrong" for user
+    // answerResultEl.append(answerDisplayEl);
+})
+
+swansonImage.addEventListener("click", function (event) {
+    console.log("swanson clicked");
+    // answerResultEl.innerHTML = "";
+
+    var userChoice = event.target.textContent;
+    var answerDisplayEl = document.createElement("h3");
+    // if the user chooses correctly, the amount of time on the timer is added 
+    // to their score and a message pops up saying correct
+    if (answer == 0) {
+        answerDisplayEl.textContent = "Correct";
+        score = score + secondsLeft;
+        console.log("Your score is " + score);
+        document.querySelector(".score").innerHTML = "Your score is " + score;
+    }
+    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
+    // deducted from the timer and a message pops up saying incorrect
+    // else { score = score - 10}
+    else {
+        secondsLeft = secondsLeft - 10;
+        answerDisplayEl.textContent = "Wrong";
+    }
+
+    //Display "right" or "wrong" for user
+    // answerResultEl.append(answerDisplayEl);
+})
 
 // after a user selects an answer, display the next quote.
 
@@ -159,6 +232,11 @@ if (correct answer) {
 
 // footer will contain names of the quoted but the links will not work?
 
+
+
+
+
+setTime();
 
 
 // HIGH SCORE SCREEN

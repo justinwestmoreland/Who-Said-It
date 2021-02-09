@@ -52,27 +52,27 @@ callAPIs();
 var donaldQuote = "";
 var westQuote = "";
 var ronQuote = "";
+var quoteArray = [];
+
+function generateQuote(quotes) {
+    console.log(quotes);
+}
 
 function trumpQuote(trumpData) {
     trumpData = JSON.parse(trumpData);
-    console.log(trumpData.message);
     donaldQuote = trumpData.message;
-    console.log("donald quote-1", donaldQuote);
+    generateQuote(donaldQuote);
 }
-console.log("donald quote-2", donaldQuote);
 
 function kanyeQuote(kanyeData) {
     kanyeData = JSON.parse(kanyeData);
-    console.log(kanyeData.quote);
-
+    generateQuote(kanyeData.quote);
 }
 
 function swansonQuote(swansonData) {
     swansonData = JSON.parse(swansonData);
-    console.log(swansonData[0]);
-
+    generateQuote(swansonData);
 }
-
 
 // WELCOME PAGE
 // When page loads display welcome message for the user
@@ -97,6 +97,12 @@ function swansonQuote(swansonData) {
 // counting down from 60 seconds
 
 // first quote should be displayed
+
+// to display the first quote, all three random quotes will need to be pulled and passed
+// to an array.
+
+// once passed into an array, a for loop will determine which quote is selected and then display
+// that text content in the id "quote"
 
 // when page loads, their pictures and names should be displayed 
 

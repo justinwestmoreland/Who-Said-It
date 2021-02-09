@@ -14,3 +14,13 @@ body {
     text-align: right;
     padding: 20px;
 }
+
+#welcome-box {
+    display: block;
+}
+#game-box {
+    display: none;
+}
+#score-box {
+    display: none;
+}

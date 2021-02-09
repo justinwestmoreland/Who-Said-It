@@ -17,12 +17,13 @@ button {
     border-radius: 5px;
     margin: auto;
 }
-.timer {
+.timer,
+.score {
     text-align: right;
-    padding: 20px;
+    padding: 10px;
 }
 
-#welcome-box {
+/* #welcome-box {
     display: block;
 }
 #game-box {
@@ -30,4 +31,4 @@ button {
 }
 #score-box {
     display: none;
-}
+} */

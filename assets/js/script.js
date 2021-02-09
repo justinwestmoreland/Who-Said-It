@@ -95,11 +95,6 @@ var highScoreButton = document.getElementById('high-scores-display');
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
-function showGameScreen() {
-    gameBox.style.display = 'block';
-    welcomeBox.style.display = 'none';
-    scoreBox.style.display = 'none';
-};
 
 var playButton = document.querySelector('.play-button')
 playButton.addEventListener('click', function () {
@@ -107,7 +102,12 @@ playButton.addEventListener('click', function () {
     setTime();
 });
 
-
+// hide welcome & socre screen, display game screen
+function showGameScreen() {
+    gameBox.style.display = 'block';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+};
 
 //MAIN PAGE
 // When page loads, score should be set to 0 and timer should start
@@ -149,7 +149,6 @@ var answer = 0; //random number used to select answer out of the array, then use
 // call function to display the first/next question
 
 
-// setTime();
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -159,8 +158,6 @@ function displayQuote() {
     // first quote should be displayed
 
     // when page loads, their pictures and names should be displayed 
-
-
 }
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
@@ -260,9 +257,6 @@ swansonImage.addEventListener("click", function (event) {
 // when timer reaches 0, game ends and high score screen opens
 
 // footer will contain names of the quoted but the links will not work?
-
-
-setTime();
 
 
 // HIGH SCORE SCREEN

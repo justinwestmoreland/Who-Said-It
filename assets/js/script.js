@@ -71,8 +71,6 @@ function generateQuote() {
     console.log(finalQuote);
 }
 
-
-
 function trumpQuote(trumpData) {
     trumpData = JSON.parse(trumpData);
     donaldQuote = trumpData.message;

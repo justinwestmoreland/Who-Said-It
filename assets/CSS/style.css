@@ -10,6 +10,7 @@ body {
     text-align: center;
     padding: 20px;
 }
+
 button {
     background-color: #231f20;
     color: whitesmoke;
@@ -17,6 +18,7 @@ button {
     border-radius: 5px;
     margin: auto;
 }
+
 .timer {
     text-align: right;
     padding: 20px;
@@ -25,9 +27,12 @@ button {
 #welcome-box {
     display: block;
 }
-#game-box {
+
+
+/* #game-box {
     display: none;
 }
+
 #score-box {
     display: none;
-}
+} */

@@ -73,10 +73,13 @@ function swansonQuote(swansonData) {
 
 }
 
+// Display box variables
+var welcomeBox = document.getElementById('welcome-box');
+var gameBox = document.getElementById('game-box');
+var scoreBox = document.getElementById('score-box');
 
 // WELCOME PAGE
 // When page loads display welcome message for the user
-
 // score and timer are not visible at this point
 
 // OPTIONAL FUNCTIONALITY: Add a quote from each of the quoted on the welcome screen
@@ -84,16 +87,24 @@ function swansonQuote(swansonData) {
 
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
+var highScoreButton = document.getElementById('high-scores-display');
+// highScoreButton.addEventListener('click', showHighScores())
+// call display scores
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
-var playButton = document.querySelector('.play-button')
-// console.log(playButton);
-playButton.addEventListener('click', function () {
-    setTime();
+function showGameScreen() {
+    gameBox.style.display = 'block';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+};
 
+var playButton = document.querySelector('.play-button')
+playButton.addEventListener('click', function () {
+    showGameScreen();
+    setTime();
 });
 
 
@@ -125,11 +136,8 @@ function setTime() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             // Calls function to end game
-
         }
-
     }, 1000);
-<<<<<<< HEAD
 
     // call function to display the first/next question
     displayQuote();
@@ -138,12 +146,10 @@ function setTime() {
 
 var score = 0;
 var answer = 0; //random number used to select answer out of the array, then used to check for correct answer
-=======
-    // call function to display the first/next question
-};
+// call function to display the first/next question
+
 
 // setTime();
->>>>>>> 1996325f9859c668bf3fa7ef10b5d80c0d864935
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -155,9 +161,7 @@ function displayQuote() {
     // when page loads, their pictures and names should be displayed 
 
 
-<<<<<<< HEAD
 }
-=======
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
 
@@ -168,7 +172,6 @@ function displayQuote() {
 //     console.log("Your score is " + score);
 //     scoreEl.innerHTML = "Your score is " + score;
 // }
->>>>>>> 1996325f9859c668bf3fa7ef10b5d80c0d864935
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
@@ -257,9 +260,6 @@ swansonImage.addEventListener("click", function (event) {
 // when timer reaches 0, game ends and high score screen opens
 
 // footer will contain names of the quoted but the links will not work?
-
-
-
 
 
 setTime();

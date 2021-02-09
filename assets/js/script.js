@@ -46,6 +46,7 @@ function callAPIs() {
         })
         .catch(error => console.log('error', error));
 }
+
 // 3 global variables 
 callAPIs();
 
@@ -54,25 +55,40 @@ var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
 
-function generateQuote(quotes) {
-    console.log(quotes);
+
+function arrayOfQuotes(data) {
+    quoteArray.push(data);
+    if (quoteArray.length == 3) {
+        generateQuote()
+    }
 }
+
+function generateQuote() {
+    var finalQuote;
+    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    console.log(randomNumber);
+    finalQuote = quoteArray[randomNumber];
+    console.log(finalQuote);
+}
+
+
 
 function trumpQuote(trumpData) {
     trumpData = JSON.parse(trumpData);
     donaldQuote = trumpData.message;
-    generateQuote(donaldQuote);
+    arrayOfQuotes(donaldQuote);
 }
 
 function kanyeQuote(kanyeData) {
     kanyeData = JSON.parse(kanyeData);
-    generateQuote(kanyeData.quote);
+    arrayOfQuotes(kanyeData.quote);
 }
 
 function swansonQuote(swansonData) {
     swansonData = JSON.parse(swansonData);
-    generateQuote(swansonData);
+    arrayOfQuotes(swansonData[0]);
 }
+
 
 // WELCOME PAGE
 // When page loads display welcome message for the user
@@ -110,7 +126,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -148,11 +164,11 @@ setTime();
 
 // if the user chooses correctly, the amount of time on the timer is added 
 // to their score and a message pops up saying correct
-if (correct answer) {
-    score = score + secondsLeft;
-    console.log("Your score is " + score);
-    scoreEl.innerHTML = "Your score is " + score;
-}
+// if (correct answer) {
+//     score = score + secondsLeft;
+//     console.log("Your score is " + score);
+//     scoreEl.innerHTML = "Your score is " + score;
+// }
 
 // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
 // deducted from the timer and a message pops up saying incorrect

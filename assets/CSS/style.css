@@ -10,6 +10,7 @@ body {
     text-align: center;
     padding: 20px;
 }
+
 button {
     background-color: #231f20;
     color: whitesmoke;
@@ -26,9 +27,12 @@ button {
 /* #welcome-box {
     display: block;
 }
-#game-box {
+
+
+/* #game-box {
     display: none;
 }
+
 #score-box {
     display: none;
 } */

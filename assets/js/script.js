@@ -96,6 +96,7 @@ function swansonQuote(swansonData) {
 var welcomeBox = document.getElementById('welcome-box');
 var gameBox = document.getElementById('game-box');
 var scoreBox = document.getElementById('score-box');
+var highScores = document.getElementById('score-history');
 
 // WELCOME PAGE
 // When page loads display welcome message for the user
@@ -107,20 +108,17 @@ var scoreBox = document.getElementById('score-box');
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
 var highScoreButton = document.getElementById('high-scores-display');
-// highScoreButton.addEventListener('click', showHighScores())
-// call display scores
-
+highScoreButton.addEventListener('click', function () {
+    gameBox.style.display = 'none';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+    highScores.style.display = 'block';
+})
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
 
 // display a button on screen that when clicked will start the game
-function showGameScreen() {
-    gameBox.style.display = 'block';
-    welcomeBox.style.display = 'none';
-    scoreBox.style.display = 'none';
-};
-
 var playButton = document.querySelector('.play-button')
 playButton.addEventListener('click', function () {
     showGameScreen();
@@ -132,6 +130,7 @@ function showGameScreen() {
     gameBox.style.display = 'block';
     welcomeBox.style.display = 'none';
     scoreBox.style.display = 'none';
+    highScores.style.display = 'none';
 };
 
 //MAIN PAGE
@@ -162,6 +161,7 @@ function setTime() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             // Calls function to end game
+            endGame();
         }
     }, 1000);
 
@@ -277,24 +277,97 @@ swansonImage.addEventListener("click", function (event) {
 // OPTIONAL FUNCTIONALITY: Exclude quotes that have already been displayed...
 
 // when timer reaches 0, game ends and high score screen opens
+function endGame() {
+    // clear timer
+    timerEl.innerHTML = "Time's Up!";
+    // hide questions screen, show score screen
+    showEndScreen();
+    // display final score
+    document.getElementById('final-score').append(score);
+    console.log(document.getElementById('final-score'));
+
+    // somewhere on the page the user is prompted to either go back to the
+    // welcome/rules page or to restart the game.
+    playButton.addEventListener('click', function () {
+        showGameScreen();
+        setTime();
+    });
+
+    // When I click Save, my name and score are stored 
+    var saveButton = document.getElementById('submit-button')
+    saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
+    renderHighscores()
+};
 
 // footer will contain names of the quoted but the links will not work?
 
 
 // HIGH SCORE SCREEN
 // timer and score should be hidden at this point
-
+function showEndScreen() {
+    gameBox.style.display = 'none';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'block';
+    highScores.style.display = 'block';
+};
 // when page loads, display the current score with user input below the 
 // score to give them the option to enter their name and save score.
 
-// when the user clicks "save score" button their score and name is instantly displayed
-// on the high score list
+
 
 // when high score page loads, names and scores from local storage should 
 // be displayed on the page. 
 
-// somewhere on the page the user is prompted to either go back to the
-// welcome/rules page or to restart the game.
+
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
+
+// Save scores
+var playerScore = "";
+
+function saveScore(initials, score) {
+
+    // console.log(initials);
+    // console.log(score);
+    var playerScores = JSON.parse(localStorage.getItem("playerScores"));
+    // uses initials as the key to look up the score
+    if (!playerScores) {
+        playerScores = {}
+    }
+    // playerScores[initials] = Math.max(playerScores[initials], score)
+    if (playerScores[initials]) {
+        if (playerScores[initials] < score) {
+            playerScores[initials] = score
+        }
+    } else {
+        playerScores[initials] = score
+    }
+    // playerScores[initials] = score > parseInt(playerScores[initials]) ? score : playerScores[initials];
+    // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    localStorage.setItem("playerScores", JSON.stringify(playerScores));
+    // when the user clicks "save score" button their score and name is instantly displayed
+    // on the high score list
+    renderHighscores();
+
+};
+
+// displays list of saved scores
+function renderHighscores() {
+    // Use JSON.parse() to convert text to JavaScript object
+    var playerScores = JSON.parse(localStorage.getItem("playerScores"));
+    var scoreList = "";
+    for (x in playerScores) {
+        scoreList += x + " : " + playerScores[x] + "<br>"
+    }
+    document.getElementById("score-history").innerHTML = scoreList
+
+    var clearScoresButton = document.getElementById('clear-scores');
+    if (clearScoresButton) {
+        clearScoresButton.addEventListener("click", function () {
+            localStorage.clear();
+            document.getElementById("score-history").innerHTML = '';
+        })
+    }
+
+};

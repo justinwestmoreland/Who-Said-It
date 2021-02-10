@@ -38,12 +38,11 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-/* #welcome-box {
+
+#welcome-box {
     display: block;
 }
-
-
-/* #game-box {
+ #game-box {
     display: none;
 }
 
@@ -54,4 +53,3 @@ img {
 #score-history {
     display: none;
 }
-*/

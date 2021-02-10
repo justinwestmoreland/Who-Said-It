@@ -15,7 +15,6 @@ function callAPIs() {
         .catch(error => console.log('error', error));
 
     // API Code for Kanye Quote Generator
-
     var myHeaders = new Headers();
     myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
 
@@ -228,7 +227,7 @@ kanyeImage.addEventListener("click", function (event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (answer == 1) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -254,7 +253,7 @@ swansonImage.addEventListener("click", function (event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (answer == 2) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -288,9 +287,9 @@ function endGame() {
 
     // somewhere on the page the user is prompted to either go back to the
     // welcome/rules page or to restart the game.
-    playButton.addEventListener('click', function () {
-        showGameScreen();
-        setTime();
+    document.getElementById('play-again').addEventListener('click', function () {
+        console.log('play again clicked');
+        location.reload();
     });
 
     // When I click Save, my name and score are stored 
@@ -300,7 +299,6 @@ function endGame() {
 };
 
 // footer will contain names of the quoted but the links will not work?
-
 
 // HIGH SCORE SCREEN
 // timer and score should be hidden at this point
@@ -313,12 +311,8 @@ function showEndScreen() {
 // when page loads, display the current score with user input below the 
 // score to give them the option to enter their name and save score.
 
-
-
 // when high score page loads, names and scores from local storage should 
 // be displayed on the page. 
-
-
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
@@ -327,14 +321,13 @@ function showEndScreen() {
 var playerScore = "";
 
 function saveScore(initials, score) {
-
     // console.log(initials);
     // console.log(score);
     var playerScores = JSON.parse(localStorage.getItem("playerScores"));
     // uses initials as the key to look up the score
     if (!playerScores) {
         playerScores = {}
-    }
+    };
     // playerScores[initials] = Math.max(playerScores[initials], score)
     if (playerScores[initials]) {
         if (playerScores[initials] < score) {
@@ -349,7 +342,6 @@ function saveScore(initials, score) {
     // when the user clicks "save score" button their score and name is instantly displayed
     // on the high score list
     renderHighscores();
-
 };
 
 // displays list of saved scores

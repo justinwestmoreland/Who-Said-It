@@ -219,7 +219,7 @@ kanyeImage.addEventListener("click", function(event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (answer == 1) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -245,7 +245,7 @@ swansonImage.addEventListener("click", function(event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (answer == 2) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);

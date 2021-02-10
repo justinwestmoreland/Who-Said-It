@@ -1,11 +1,9 @@
 /// API Code for Trump Quote Generator
 function callAPIs() {
-
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
-
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
         .then(response => response.text())
         .then(result => {
@@ -13,12 +11,9 @@ function callAPIs() {
             kanyeAPI()
         })
         .catch(error => console.log('error', error));
-
     // API Code for Kanye Quote Generator
-
     var myHeaders = new Headers();
     myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
-
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -34,9 +29,7 @@ function callAPIs() {
             })
             .catch(error => console.log('error', error));
     }
-
     // API Code for Ron Swanson Quote Generator
-
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -51,14 +44,12 @@ function callAPIs() {
             .catch(error => console.log('error', error));
     }
 }
-// 3 global variables 
-callAPIs();
 
+// Global Variables 
 var donaldQuote = "";
 var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
-
 
 function arrayOfQuotes(data) {
     quoteArray.push(data);
@@ -68,12 +59,10 @@ function arrayOfQuotes(data) {
 }
 
 function generateQuote() {
-    console.log("quote array", quoteArray);
     var finalQuote;
     var randomNumber = Math.floor(Math.random() * quoteArray.length);
-    console.log(randomNumber);
     finalQuote = quoteArray[randomNumber];
-    console.log(finalQuote);
+    displayQuote(finalQuote, randomNumber);
 }
 
 function trumpQuote(trumpData) {
@@ -108,7 +97,7 @@ var highScores = document.getElementById('score-history');
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
 var highScoreButton = document.getElementById('high-scores-display');
-highScoreButton.addEventListener('click', function () {
+highScoreButton.addEventListener('click', function() {
     gameBox.style.display = 'none';
     welcomeBox.style.display = 'none';
     scoreBox.style.display = 'none';
@@ -120,9 +109,10 @@ highScoreButton.addEventListener('click', function () {
 
 // display a button on screen that when clicked will start the game
 var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function () {
+playButton.addEventListener('click', function() {
     showGameScreen();
     setTime();
+    callAPIs();
 });
 
 // hide welcome & score screen, display game screen
@@ -152,7 +142,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -164,17 +154,18 @@ function setTime() {
             endGame();
         }
     }, 1000);
-
-    // call function to display the first/next question
-    displayQuote();
-
 };
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
 var swansonImage = document.getElementById("ronSwanson");
+var quoteDisplay = document.getElementById("quotes");
 
-function displayQuote() {
+function displayQuote(quote, personQuoted) {
+    quoteDisplay.textContent = quote;
+    // for personQuoted trump = 0, kanye = 1, Swanson =2
+    console.log(personQuoted);
+
     // first quote should be displayed
 
     // when page loads, their pictures and names should be displayed 
@@ -194,7 +185,7 @@ function displayQuote() {
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
-trumpImage.addEventListener("click", function (event) {
+trumpImage.addEventListener("click", function(event) {
     console.log("trump clicked");
     // answerResultEl.innerHTML = "";
 
@@ -220,7 +211,7 @@ trumpImage.addEventListener("click", function (event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function (event) {
+kanyeImage.addEventListener("click", function(event) {
     console.log("kanye clicked");
     // answerResultEl.innerHTML = "";
 
@@ -246,7 +237,7 @@ kanyeImage.addEventListener("click", function (event) {
     // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function (event) {
+swansonImage.addEventListener("click", function(event) {
     console.log("swanson clicked");
     // answerResultEl.innerHTML = "";
 
@@ -288,14 +279,14 @@ function endGame() {
 
     // somewhere on the page the user is prompted to either go back to the
     // welcome/rules page or to restart the game.
-    playButton.addEventListener('click', function () {
+    playButton.addEventListener('click', function() {
         showGameScreen();
         setTime();
     });
 
     // When I click Save, my name and score are stored 
     var saveButton = document.getElementById('submit-button')
-    saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
+    saveButton.addEventListener("click", function() { saveScore(document.getElementById("name-input").value, score) })
     renderHighscores()
 };
 
@@ -364,7 +355,7 @@ function renderHighscores() {
 
     var clearScoresButton = document.getElementById('clear-scores');
     if (clearScoresButton) {
-        clearScoresButton.addEventListener("click", function () {
+        clearScoresButton.addEventListener("click", function() {
             localStorage.clear();
             document.getElementById("score-history").innerHTML = '';
         })

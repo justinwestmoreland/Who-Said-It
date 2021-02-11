@@ -1,3 +1,8 @@
+/// Particles
+particlesJS.load('particles-js', 'assets/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+
 /// API Code for Trump Quote Generator
 function callAPIs() {
 

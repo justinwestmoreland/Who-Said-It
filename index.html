@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 
 
 </head>
@@ -19,18 +20,22 @@
     <!-- Navigation Bar  -->
     <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
         <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
+            <ul class="dropdown-menu data-dropdown-menu">
                 <li><a href="index.html">Who Said It?</a></li>
                 <li id="high-scores-display">High Scores</li>
             </ul>
         </div>
     </div>
+    <div class="grid-x grid-padding-x align-center-middle text-center">
+        <h1>Who Said It?</h1>
+
+    </div>
     <div class="container">
 
         <!-- Welcome box -->
         <div id="welcome-box">
-            <div class="grid-x">
-                <div class="cell">We all know Donald Trump, Kanye West, and Ron Swanson - but how well do you remember what they've said? Play Who Said It and find out!<br>Click on a picture to guess who said it. The remaining time will be added to your score. The game
+            <div class="grid-x grid-padding-x align-center-middle text-center">
+                <div class="cell small-4">We all know Donald Trump, Kanye West, and Ron Swanson - but how well do you remember what they've said? Play Who Said It and find out!<br>Click on a picture to guess who said it. The remaining time will be added to your score. The game
                     ends when the timer runs out, but be careful! Incorrect answers deduct 10 seconds from the timer! Play again and try to beat your high score!
                 </div>
             </div>
@@ -41,17 +46,20 @@
 
         <!-- game box -->
         <div id="game-box">
-            <div class="grid-x">
+            <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="cell medium-3">
 
                 </div>
 
                 <div class="cell medium-6" id="quote-box">
+                    <div class="cell" id="quote-box">This is where the quotes will go</div>
                     <div id="quotes" class="cell"></div>
                 </div>
 
                 <!-- quote box -->
-                <div class="cell medium-3">
+                <div class="grid-x grid-padding-x align-center-middle text-center">
+                    <div class="cell medium-3">
+                    </div>
                     <!-- score -->
                     <div class="grid-x">
                         <div class="cell medium-12 score">Score</div>
@@ -63,7 +71,7 @@
                 </div>
             </div>
             <!-- answer choices  -->
-            <div class="grid-x">
+            <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="cell medium-4"><img id="donaldTrump" src="assets/images/Donald_Trump_Final.png"></div>
                 <div class="cell medium-4"><img id="kanyeWest" src="assets/images/Kanye_West_Final.png"></div>
                 <div class="cell medium-4"><img id="ronSwanson" src="assets/images/Ron_Swanson_Final.png"></div>
@@ -73,29 +81,30 @@
         <!-- score screen -->
         <div>
 
-            <div class="container" id="score-box">
-                <h1> You Scored: <span id="final-score"></span></h1>
+            <div class="grid-x grid-padding-x align-center-middle text-center">
+                <div class="container" id="score-box">
+                    <h1> You Scored: <span id="final-score"></span></h1>
 
-                <input id="name-input" placeholder="Your name here" size="21" type="text">
-                <button id="submit-button">Submit</button>
-                <button id="play-again">Play Again!</button>
+                    <input id="name-input" placeholder="Your name here" size="21" type="text">
+                    <button id="submit-button">Submit</button>
+                    <button id="play-again">Play Again!</button>
+                </div>
+                <div class="grid-x grid-padding-x align-center-middle text-center" id="score-history">
+                    <div class="container" id="score-history-box">
+                        <div id="score-history">
+
+                        </div>
+                        <!-- save and display recent scores submitted -->
+                        <button id="clear-scores">Clear highscores</button>
+                    </div>
+                </div>
             </div>
-            <div class="container" id="score-history">
-                <!-- save and display recent scores submitted -->
-            </div>
-            <button id="clear-scores">Clear highscores</button>
-
-            <!-- save score -->
-            <button id="clear-scores">Clear highscores</button>
-
-            <!-- high scores -->
         </div>
     </div>
 
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>

@@ -50,6 +50,7 @@ var donaldQuote = "";
 var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
+var randomNumber = 0;
 
 function arrayOfQuotes(data) {
     quoteArray.push(data);
@@ -60,7 +61,7 @@ function arrayOfQuotes(data) {
 
 function generateQuote() {
     var finalQuote;
-    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    randomNumber = Math.floor(Math.random() * quoteArray.length);
     finalQuote = quoteArray[randomNumber];
     displayQuote(finalQuote, randomNumber);
 }
@@ -193,7 +194,7 @@ trumpImage.addEventListener("click", function (event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (randomNumber == 0) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -207,6 +208,7 @@ trumpImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -219,7 +221,7 @@ kanyeImage.addEventListener("click", function (event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 1) {
+    if (randomNumber == 1) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -233,6 +235,7 @@ kanyeImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -245,7 +248,7 @@ swansonImage.addEventListener("click", function (event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 2) {
+    if (randomNumber == 2) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -259,6 +262,7 @@ swansonImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })

@@ -86,7 +86,7 @@ function swansonQuote(swansonData) {
 var welcomeBox = document.getElementById('welcome-box');
 var gameBox = document.getElementById('game-box');
 var scoreBox = document.getElementById('score-box');
-var highScores = document.getElementById('score-history');
+var highScores = document.getElementById('score-history-box');
 
 // WELCOME PAGE
 // When page loads display welcome message for the user
@@ -95,15 +95,7 @@ var highScores = document.getElementById('score-history');
 // OPTIONAL FUNCTIONALITY: Add a quote from each of the quoted on the welcome screen
 // to give users an example of the game.
 
-// button to display high scores which are saved in local storage located in the
-// top right of the nav bar
-var highScoreButton = document.getElementById('high-scores-display');
-highScoreButton.addEventListener('click', function () {
-    gameBox.style.display = 'none';
-    welcomeBox.style.display = 'none';
-    scoreBox.style.display = 'none';
-    highScores.style.display = 'block';
-})
+
 
 // footer will contain names of the quoted and when clicked will
 // take you to their wikipedia page
@@ -359,3 +351,13 @@ function renderHighscores() {
     }
 
 };
+// button to display high scores which are saved in local storage located in the
+// top right of the nav bar
+var highScoreButton = document.getElementById('high-scores-display');
+highScoreButton.addEventListener('click', function () {
+    renderHighscores();
+    gameBox.style.display = 'none';
+    welcomeBox.style.display = 'none';
+    scoreBox.style.display = 'none';
+    highScores.style.display = 'block';
+})

@@ -11,71 +11,85 @@ var quoteObject = {
 
 }
 callAPIs();
-/// API Code for Trump Quote Generator
-let counter = 0;
 
 function callAPIs() {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-    fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.trump.quotes.push(JSON.parse(result).message);
-            counter++;
-            if (counter < 20) {
-                callAPIs();
-            } else {
-                kanyeAPI();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
-// API Code for Kanye Quote Generator
-function kanyeAPI() {
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
+    let tcounter = 0;
+    let kcounter = 0;
+    let scounter = 0;
+    trumpAPI();
+    kanyeAPI();
+    swansonAPI();
 
-    fetch("https://api.kanye.rest/", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.kanye.quotes.push(JSON.parse(result).quote);
-            counter++;
-            if (counter < 40) {
-                kanyeAPI()
-            } else {
-                swansonAPI();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
-// API Code for Ron Swanson Quote Generator
-function swansonAPI() {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
+    /// API Code for Trump Quote Generator
+    function trumpAPI() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.trump.quotes.push(JSON.parse(result).message);
+                tcounter++;
+                if (tcounter < 20) {
+                    trumpAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+    // API Code for Kanye Quote Generator
+    function kanyeAPI() {
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
 
-    fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.swanson.quotes.push(JSON.parse(result)[0]);
-            counter++;
-            if (counter < 60) {
-                swansonAPI();
-            } else {
-                generateQuote();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
+        fetch("https://api.kanye.rest/", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.kanye.quotes.push(JSON.parse(result).quote);
+                kcounter++;
+                if (kcounter < 20) {
+                    kanyeAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
 
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+    // API Code for Ron Swanson Quote Generator
+    function swansonAPI() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.swanson.quotes.push(JSON.parse(result)[0]);
+                scounter++;
+                if (scounter < 20) {
+                    swansonAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+}
 
 // Global Variables 
 var donaldQuote = "";
@@ -83,17 +97,11 @@ var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
 var quoteNumber = 0;
-
-// function arrayOfQuotes(data) {
-//     quoteArray.push(data);
-//     if (quoteArray.length == 3) {
-//         generateQuote()
-//     }
-// }
+var randomNumber = 0;
 
 function generateQuote() {
     var displayedQuote;
-    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
         displayedQuote = quoteObject.trump.quotes[quoteNumber];
     } else if (randomNumber == 1) {
@@ -101,12 +109,12 @@ function generateQuote() {
     } else if (randomNumber == 2) {
         displayedQuote = quoteObject.swanson.quotes[quoteNumber];
     }
+    console.log(quoteObject);
     console.log(displayedQuote);
     console.log(randomNumber);
     displayQuote(displayedQuote);
+    quoteNumber++;
 }
-
-
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -116,14 +124,9 @@ var quoteDisplay = document.getElementById("quotes");
 function displayQuote(quote) {
     quoteDisplay.textContent = quote;
     // for personQuoted trump = 0, kanye = 1, Swanson =2
-
     // first quote should be displayed
-
     // when page loads, their pictures and names should be displayed 
-
-
 }
-
 // Display box variables
 var welcomeBox = document.getElementById('welcome-box');
 var gameBox = document.getElementById('game-box');
@@ -143,7 +146,7 @@ var highScores = document.getElementById('score-history-box');
 
 // display a button on screen that when clicked will start the game
 var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function () {
+playButton.addEventListener('click', function() {
     showGameScreen();
     setTime();
     callAPIs();
@@ -176,7 +179,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -203,7 +206,7 @@ function setTime() {
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
-trumpImage.addEventListener("click", function (event) {
+trumpImage.addEventListener("click", function(event) {
     console.log("trump clicked");
     // answerResultEl.innerHTML = "";
 
@@ -225,12 +228,12 @@ trumpImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function (event) {
+kanyeImage.addEventListener("click", function(event) {
     console.log("kanye clicked");
     // answerResultEl.innerHTML = "";
 
@@ -252,12 +255,12 @@ kanyeImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function (event) {
+swansonImage.addEventListener("click", function(event) {
     console.log("swanson clicked");
     // answerResultEl.innerHTML = "";
 
@@ -279,7 +282,7 @@ swansonImage.addEventListener("click", function (event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -300,14 +303,14 @@ function endGame() {
 
     // somewhere on the page the user is prompted to either go back to the
     // welcome/rules page or to restart the game.
-    document.getElementById('play-again').addEventListener('click', function () {
+    document.getElementById('play-again').addEventListener('click', function() {
         console.log('play again clicked');
         location.reload();
     });
 
     // When I click Save, my name and score are stored 
     var saveButton = document.getElementById('submit-button')
-    saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
+    saveButton.addEventListener("click", function() { saveScore(document.getElementById("name-input").value, score) })
     renderHighscores()
 };
 
@@ -369,7 +372,7 @@ function renderHighscores() {
 
     var clearScoresButton = document.getElementById('clear-scores');
     if (clearScoresButton) {
-        clearScoresButton.addEventListener("click", function () {
+        clearScoresButton.addEventListener("click", function() {
             localStorage.clear();
             document.getElementById("score-history").innerHTML = '';
         })
@@ -379,7 +382,7 @@ function renderHighscores() {
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
 var highScoreButton = document.getElementById('high-scores-display');
-highScoreButton.addEventListener('click', function () {
+highScoreButton.addEventListener('click', function() {
     renderHighscores();
     gameBox.style.display = 'none';
     welcomeBox.style.display = 'none';

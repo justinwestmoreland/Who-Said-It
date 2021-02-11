@@ -50,6 +50,7 @@ var donaldQuote = "";
 var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
+var randomNumber = 0;
 
 function arrayOfQuotes(data) {
     quoteArray.push(data);
@@ -60,7 +61,7 @@ function arrayOfQuotes(data) {
 
 function generateQuote() {
     var finalQuote;
-    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    randomNumber = Math.floor(Math.random() * quoteArray.length);
     finalQuote = quoteArray[randomNumber];
     displayQuote(finalQuote, randomNumber);
 }
@@ -97,7 +98,7 @@ var highScores = document.getElementById('score-history');
 // button to display high scores which are saved in local storage located in the
 // top right of the nav bar
 var highScoreButton = document.getElementById('high-scores-display');
-highScoreButton.addEventListener('click', function() {
+highScoreButton.addEventListener('click', function () {
     gameBox.style.display = 'none';
     welcomeBox.style.display = 'none';
     scoreBox.style.display = 'none';
@@ -109,7 +110,7 @@ highScoreButton.addEventListener('click', function() {
 
 // display a button on screen that when clicked will start the game
 var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function() {
+playButton.addEventListener('click', function () {
     showGameScreen();
     setTime();
     callAPIs();
@@ -142,7 +143,7 @@ function setTime() {
     // call function to display 
 
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         // answerResultEl.innerHTML = "";
@@ -185,7 +186,7 @@ function displayQuote(quote, personQuoted) {
 
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
-trumpImage.addEventListener("click", function(event) {
+trumpImage.addEventListener("click", function (event) {
     console.log("trump clicked");
     // answerResultEl.innerHTML = "";
 
@@ -193,7 +194,7 @@ trumpImage.addEventListener("click", function(event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 0) {
+    if (randomNumber == 0) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -207,11 +208,12 @@ trumpImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function(event) {
+kanyeImage.addEventListener("click", function (event) {
     console.log("kanye clicked");
     // answerResultEl.innerHTML = "";
 
@@ -219,7 +221,7 @@ kanyeImage.addEventListener("click", function(event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 1) {
+    if (randomNumber == 1) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -233,11 +235,12 @@ kanyeImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function(event) {
+swansonImage.addEventListener("click", function (event) {
     console.log("swanson clicked");
     // answerResultEl.innerHTML = "";
 
@@ -245,7 +248,7 @@ swansonImage.addEventListener("click", function(event) {
     var answerDisplayEl = document.createElement("h3");
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
-    if (answer == 2) {
+    if (randomNumber == 2) {
         answerDisplayEl.textContent = "Correct";
         score = score + secondsLeft;
         console.log("Your score is " + score);
@@ -259,6 +262,7 @@ swansonImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
+    callAPIs();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -279,14 +283,14 @@ function endGame() {
 
     // somewhere on the page the user is prompted to either go back to the
     // welcome/rules page or to restart the game.
-    playButton.addEventListener('click', function() {
+    playButton.addEventListener('click', function () {
         showGameScreen();
         setTime();
     });
 
     // When I click Save, my name and score are stored 
     var saveButton = document.getElementById('submit-button')
-    saveButton.addEventListener("click", function() { saveScore(document.getElementById("name-input").value, score) })
+    saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
     renderHighscores()
 };
 
@@ -355,7 +359,7 @@ function renderHighscores() {
 
     var clearScoresButton = document.getElementById('clear-scores');
     if (clearScoresButton) {
-        clearScoresButton.addEventListener("click", function() {
+        clearScoresButton.addEventListener("click", function () {
             localStorage.clear();
             document.getElementById("score-history").innerHTML = '';
         })

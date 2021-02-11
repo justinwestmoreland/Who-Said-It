@@ -4,6 +4,7 @@ body {
     background-color: #EDEDED;
     font-family: 'Quicksand', sans-serif;
 }
+
 #high-scores-display {
     padding: .7rem 1rem;
     margin-bottom: 0;
@@ -27,6 +28,7 @@ button {
     border-radius: 5px;
     margin: auto;
 }
+
 .timer,
 .score {
     text-align: right;
@@ -35,14 +37,13 @@ button {
 
 img {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
-/* 
+
 #welcome-box {
     display: block;
 }
-
 
 #game-box {
     display: none;
@@ -50,8 +51,8 @@ img {
 
 #score-box {
     display: none;
-} 
+}
 
 #score-history {
     display: none;
-} */
+}

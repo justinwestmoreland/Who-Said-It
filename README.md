@@ -1,6 +1,4 @@
-# Project-1
-
-# Who Said It? | Jenn Greiner
+# Who Said It?
 
 ### Table of Contents:
 * [Deployed Site](#deployed-site)
@@ -33,7 +31,7 @@ This application will run in any web browser.
 ​
 
 ## Contributors
-Jenn Greiner, Justin Westmoreland, Gabe Quaakelar, Florencia Ceballos
+Jenn Greiner, Justin Westmoreland, Gabe Quakkelaar, Florencia Ceballos
 ​
 ## Database Information 
 ​

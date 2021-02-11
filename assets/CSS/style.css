@@ -14,13 +14,17 @@ body {
 .top-bar ul {
     background-color: darkred;
 }
-a{
+a,
+#high-scores-display {
     color: white;
     font-family: 'Bungee', cursive;
+    cursor: pointer;
 }
  h1{
     font-family: 'Bungee', cursive;
  }
+
+#welcome-box,
 #quote-box {
     text-align: center;
     padding: 20px;
@@ -29,6 +33,7 @@ a{
     border-style: dotted;
     border-color: gold;
 }
+
 button {
     background-color: #231f20;
     color: whitesmoke;
@@ -37,10 +42,18 @@ button {
     margin: auto;
     font-family: 'Bungee', cursive;
 }
-.timer {
+.timer,
+.score {
     text-align: right;
     padding: 20px;
     font-family: 'Bungee', cursive;
+    padding: 10px;
+}
+
+img {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #welcome-box {
@@ -51,15 +64,20 @@ button {
     border-color: gold;
     font-family: 'Bungee', cursive;
 }
-#game-box {
+ #game-box {
     display: none;
     font-family: 'Bungee', cursive;
     border-style: dotted;
     border-color: gold;
 }
+
 #score-box {
     display: none;
     font-family: 'Bungee', cursive;
     border-style: dotted;
     border-color: gold;
+}
+
+#score-history-box {
+    display: none;
 }

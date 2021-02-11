@@ -1,28 +1,27 @@
 /* /*Style for Application here (: */
 
-
 body {
-    background-image: url('https://gfycat.com/yellowishinsecuregermanpinscher');
-    background-size: cover;
-    height: 100vh;
-    padding:0;
-    margin:0;
+
 }
-.top-bar{
+
+.top-bar {
     background-color: darkred;
 }
+
 .top-bar ul {
-    background-color: darkred;
+    background-color: transparent;
 }
+
 a,
 #high-scores-display {
     color: white;
     font-family: 'Bungee', cursive;
     cursor: pointer;
 }
- h1{
+
+h1 {
     font-family: 'Bungee', cursive;
- }
+}
 
 #welcome-box,
 #quote-box {
@@ -53,8 +52,8 @@ button {
 
 img {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #welcome-box {
@@ -65,7 +64,8 @@ img {
     border-color: gold;
     font-family: 'Bungee', cursive;
 }
- #game-box {
+
+#game-box {
     display: none;
     font-family: 'Bungee', cursive;
     border-style: dotted;

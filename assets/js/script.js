@@ -1,7 +1,7 @@
 /// Particles
-particlesJS.load('particles-js', 'assets/particles.json', function() {
+particlesJS.load('particles-js', 'assets/particles.json', function () {
     console.log('callback - particles.js config loaded');
-  });
+});
 
 /// API Code for Trump Quote Generator
 function callAPIs() {
@@ -167,9 +167,7 @@ function displayQuote(quote, personQuoted) {
     // first quote should be displayed
 
     // when page loads, their pictures and names should be displayed 
-
-
-}
+};
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
 

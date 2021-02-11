@@ -11,71 +11,85 @@ var quoteObject = {
 
 }
 callAPIs();
-/// API Code for Trump Quote Generator
-let counter = 0;
 
 function callAPIs() {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-    fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.trump.quotes.push(JSON.parse(result).message);
-            counter++;
-            if (counter < 20) {
-                callAPIs();
-            } else {
-                kanyeAPI();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
-// API Code for Kanye Quote Generator
-function kanyeAPI() {
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
+    let tcounter = 0;
+    let kcounter = 0;
+    let scounter = 0;
+    trumpAPI();
+    kanyeAPI();
+    swansonAPI();
 
-    fetch("https://api.kanye.rest/", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.kanye.quotes.push(JSON.parse(result).quote);
-            counter++;
-            if (counter < 40) {
-                kanyeAPI()
-            } else {
-                swansonAPI();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
-// API Code for Ron Swanson Quote Generator
-function swansonAPI() {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
+    /// API Code for Trump Quote Generator
+    function trumpAPI() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.trump.quotes.push(JSON.parse(result).message);
+                tcounter++;
+                if (tcounter < 20) {
+                    trumpAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+    // API Code for Kanye Quote Generator
+    function kanyeAPI() {
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
 
-    fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            quoteObject.swanson.quotes.push(JSON.parse(result)[0]);
-            counter++;
-            if (counter < 60) {
-                swansonAPI();
-            } else {
-                generateQuote();
-            }
-        })
-        .catch(error => console.log('error', error));
-}
+        fetch("https://api.kanye.rest/", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.kanye.quotes.push(JSON.parse(result).quote);
+                kcounter++;
+                if (kcounter < 20) {
+                    kanyeAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
 
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+    // API Code for Ron Swanson Quote Generator
+    function swansonAPI() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                quoteObject.swanson.quotes.push(JSON.parse(result)[0]);
+                scounter++;
+                if (scounter < 20) {
+                    swansonAPI();
+                } else {
+                    if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
+                        generateQuote();
+                    }
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+}
 
 // Global Variables 
 var donaldQuote = "";
@@ -83,17 +97,11 @@ var westQuote = "";
 var ronQuote = "";
 var quoteArray = [];
 var quoteNumber = 0;
-
-// function arrayOfQuotes(data) {
-//     quoteArray.push(data);
-//     if (quoteArray.length == 3) {
-//         generateQuote()
-//     }
-// }
+var randomNumber = 0;
 
 function generateQuote() {
     var displayedQuote;
-    var randomNumber = Math.floor(Math.random() * quoteArray.length);
+    randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
         displayedQuote = quoteObject.trump.quotes[quoteNumber];
     } else if (randomNumber == 1) {
@@ -101,12 +109,12 @@ function generateQuote() {
     } else if (randomNumber == 2) {
         displayedQuote = quoteObject.swanson.quotes[quoteNumber];
     }
+    console.log(quoteObject);
     console.log(displayedQuote);
     console.log(randomNumber);
     displayQuote(displayedQuote);
+    quoteNumber++;
 }
-
-
 
 var trumpImage = document.getElementById("donaldTrump");
 var kanyeImage = document.getElementById("kanyeWest");
@@ -116,14 +124,9 @@ var quoteDisplay = document.getElementById("quotes");
 function displayQuote(quote) {
     quoteDisplay.textContent = quote;
     // for personQuoted trump = 0, kanye = 1, Swanson =2
-
     // first quote should be displayed
-
     // when page loads, their pictures and names should be displayed 
-
-
 }
-
 // Display box variables
 var welcomeBox = document.getElementById('welcome-box');
 var gameBox = document.getElementById('game-box');
@@ -225,7 +228,7 @@ trumpImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -252,7 +255,7 @@ kanyeImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
@@ -279,7 +282,7 @@ swansonImage.addEventListener("click", function(event) {
         answerDisplayEl.textContent = "Wrong";
     }
 
-    callAPIs();
+    generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })

@@ -1,5 +1,6 @@
 /* /*Style for Application here (: */
 
+<<<<<<< HEAD
 /* body {
     background-image: url("assets/images/main-background.jpg");
     background-repeat: no-repeat;
@@ -9,6 +10,14 @@
 } */
 .top-bar{
     background-color:transparent;
+=======
+body {
+
+}
+
+.top-bar {
+    background-color: darkred;
+>>>>>>> b81e2ae23bb5a9646c5b3dc13b8187bd158c1d46
 }
 
 .top-bar ul {
@@ -90,6 +99,7 @@ img {
 #score-history-box {
     color: white;
     display: none;
+<<<<<<< HEAD
 }
 #quote-box {
     background-color: transparent;
@@ -99,3 +109,9 @@ img {
     border-color: gold;
     border-width: thick;
 }
+=======
+    font-family: 'Bungee', cursive;
+    border-style: dotted;
+    display: none;
+}
+>>>>>>> b81e2ae23bb5a9646c5b3dc13b8187bd158c1d46

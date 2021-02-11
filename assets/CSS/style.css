@@ -1,6 +1,12 @@
 /* /*Style for Application here (: */
 
 body {
+<<<<<<< HEAD
+
+}
+.top-bar{
+    background-color: transparent;
+=======
     background-image: url('https://gfycat.com/yellowishinsecuregermanpinscher');
     background-size: cover;
     height: 100vh;
@@ -10,10 +16,11 @@ body {
 
 .top-bar {
     background-color: darkred;
+>>>>>>> 39842ba225b3b5faf84c84e42bce200a49d97cbe
 }
 
 .top-bar ul {
-    background-color: darkred;
+    background-color: transparent;
 }
 
 a,

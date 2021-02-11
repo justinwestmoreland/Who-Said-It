@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+/// Particles
+particlesJS.load('particles-js', 'assets/particles.json', function () {
+    console.log('callback - particles.js config loaded');
+});
+=======
 var quoteObject = {
     trump: {
         quotes: []
@@ -8,6 +14,7 @@ var quoteObject = {
     swanson: {
         quotes: []
     }
+>>>>>>> e7295e590282a1a3f0af420edfcbfae8e816e376
 
 }
 callAPIs();
@@ -190,6 +197,23 @@ function setTime() {
     }, 1000);
 };
 
+<<<<<<< HEAD
+var trumpImage = document.getElementById("donaldTrump");
+var kanyeImage = document.getElementById("kanyeWest");
+var swansonImage = document.getElementById("ronSwanson");
+var quoteDisplay = document.getElementById("quotes");
+
+function displayQuote(quote, personQuoted) {
+    quoteDisplay.textContent = quote;
+    // for personQuoted trump = 0, kanye = 1, Swanson =2
+    console.log(personQuoted);
+
+    // first quote should be displayed
+
+    // when page loads, their pictures and names should be displayed 
+};
+=======
+>>>>>>> e7295e590282a1a3f0af420edfcbfae8e816e376
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
 

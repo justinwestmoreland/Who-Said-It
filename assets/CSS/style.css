@@ -1,22 +1,11 @@
 /* /*Style for Application here (: */
 
 body {
-<<<<<<< HEAD
 
-}
-.top-bar{
-    background-color: transparent;
-=======
-    background-image: url('https://gfycat.com/yellowishinsecuregermanpinscher');
-    background-size: cover;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
 }
 
 .top-bar {
     background-color: darkred;
->>>>>>> 39842ba225b3b5faf84c84e42bce200a49d97cbe
 }
 
 .top-bar ul {
@@ -91,5 +80,8 @@ img {
 }
 
 #score-history-box {
+    display: none;
+    font-family: 'Bungee', cursive;
+    border-style: dotted;
     display: none;
 }

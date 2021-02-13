@@ -99,3 +99,7 @@ img {
     border-color: gold;
     border-width: thick;
 }
+
+#playBtn {
+    display: none;
+}

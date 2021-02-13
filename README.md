@@ -29,7 +29,11 @@ Open the application [Who Said It?](https://justinwestmoreland.github.io/Project
 
 The following image shows the game's appearance and functionality:
 
-![The following Gif shows the Who Said It? Game's appearance and functionality:](./Assets/images/Game.gif)
+<img width="1106" alt="WelcomePage" src="https://user-images.githubusercontent.com/74849838/107861345-6271ef00-6e13-11eb-9c3c-b6ff097863a6.png">
+
+![60283b1947cc6557499793](https://user-images.githubusercontent.com/74849838/107861322-348caa80-6e13-11eb-8ef8-7cad5b2cf1ee.gif)
+
+<img width="1110" alt="HighScores" src="https://user-images.githubusercontent.com/74849838/107861392-8b927f80-6e13-11eb-9b5f-e3137855f03e.png">
 
 ## Installation
 This application will run in any web browser.

@@ -1,6 +1,26 @@
 //GLOBAL VARIABLES
-var playBtn = document.querySelector('.play-button');
-console.log(playBtn);
+var donaldQuote = "";
+var westQuote = "";
+var ronQuote = "";
+var quoteArray = [];
+var quoteNumber = 0;
+var randomNumber = 0;
+var trumpImage = document.getElementById("donaldTrump");
+var kanyeImage = document.getElementById("kanyeWest");
+var swansonImage = document.getElementById("ronSwanson");
+var quoteDisplay = document.getElementById("quotes");
+var welcomeBox = document.getElementById('welcome-box');
+var gameBox = document.getElementById('game-box');
+var scoreBox = document.getElementById('score-box');
+var highScores = document.getElementById('score-history-box');
+var timerEl = document.querySelector(".timer");
+var answerDisplayEl = document.getElementById("answer-results");
+var secondsLeft = 60;
+var score = 0;
+var answer = 0;
+var playButton = document.querySelector('.play-button')
+var playerScore = "";
+var highScoreButton = document.getElementById('high-scores-display');
 
 var quoteObject = {
     trump: {
@@ -12,19 +32,15 @@ var quoteObject = {
     swanson: {
         quotes: []
     }
-
 }
-callAPIs();
 
 function callAPIs() {
+    // Counters are the variables used to track how many quotes are being pulled from each API when the page loads. 
     let tcounter = 0;
     let kcounter = 0;
     let scounter = 0;
-    trumpAPI();
-    kanyeAPI();
-    swansonAPI();
 
-    /// API Code for Trump Quote Generator
+    /// API for Trump Quote Generator
     function trumpAPI() {
         var requestOptions = {
             method: 'GET',
@@ -33,21 +49,22 @@ function callAPIs() {
         fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random", requestOptions)
             .then(response => response.text())
             .then(result => {
+                // Push the quote pulled from the API into the quote object array for Trump Quotes. Loops through 20 times to finish with an array of 20 quotes
                 quoteObject.trump.quotes.push(JSON.parse(result).message);
                 tcounter++;
                 if (tcounter < 20) {
                     trumpAPI();
                 } else {
+                    // Once all arrays are filled with 20 quotes each, generateQuote function is called and the play button is shown on the screen.
                     if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
                         generateQuote();
-                        console.log(playBtn + " trump");
-                        playBtn.style.display = 'block';
+                        playButton.style.display = 'block';
                     }
                 }
             })
             .catch(error => console.log('error', error));
     }
-    // API Code for Kanye Quote Generator
+    // API for Kanye Quote Generator
     function kanyeAPI() {
         var myHeaders = new Headers();
         myHeaders.append("Cookie", "__cfduid=d1d72df49b21239c0e604b31a851d79361612407918");
@@ -56,21 +73,20 @@ function callAPIs() {
             headers: myHeaders,
             redirect: 'follow'
         };
-
         fetch("https://api.kanye.rest/", requestOptions)
             .then(response => response.text())
             .then(result => {
+                // Push the quote pulled from the API into the quote object array for Kanye Quotes. Loops through 20 times to finish with an array of 20 quotes
                 quoteObject.kanye.quotes.push(JSON.parse(result).quote);
                 kcounter++;
                 if (kcounter < 20) {
                     kanyeAPI();
                 } else {
+                    // Once all arrays are filled with 20 quotes each, generateQuote function is called and the play button is shown on the screen.
                     if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
                         generateQuote();
-                        console.log(playBtn + " kanye");
-                        playBtn.style.display = 'block';
+                        playButton.style.display = 'block';
                     }
-
                 }
             })
             .catch(error => console.log('error', error));
@@ -81,34 +97,30 @@ function callAPIs() {
             method: 'GET',
             redirect: 'follow'
         };
-
         fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes", requestOptions)
             .then(response => response.text())
             .then(result => {
+                // Push the quote pulled from the API into the quote object array for Swanson Quotes. Loops through 20 times to finish with an array of 20 quotes
                 quoteObject.swanson.quotes.push(JSON.parse(result)[0]);
                 scounter++;
                 if (scounter < 20) {
                     swansonAPI();
                 } else {
+                    // Once all arrays are filled with 20 quotes each, generateQuote function is called and the play button is shown on the screen.
                     if (quoteObject.trump.quotes.length == 20 && quoteObject.kanye.quotes.length == 20 && quoteObject.swanson.quotes.length == 20) {
                         generateQuote();
-                        console.log(playBtn + " swanson");
-                        playBtn.style.display = 'block';
+                        playButton.style.display = 'block';
                     }
                 }
             })
             .catch(error => console.log('error', error));
     }
+    trumpAPI();
+    kanyeAPI();
+    swansonAPI();
 }
 
-// Global Variables 
-var donaldQuote = "";
-var westQuote = "";
-var ronQuote = "";
-var quoteArray = [];
-var quoteNumber = 0;
-var randomNumber = 0;
-
+// This function generates a random number and uses that random number to deterime which persons quote is displayed on the screen. After each quote is displayed, the variable quote number increases by 1 so we move to the next spot in each generated quote array.
 function generateQuote() {
     var displayedQuote;
     randomNumber = Math.floor(Math.random() * 3);
@@ -123,76 +135,33 @@ function generateQuote() {
     quoteNumber++;
 }
 
-var trumpImage = document.getElementById("donaldTrump");
-var kanyeImage = document.getElementById("kanyeWest");
-var swansonImage = document.getElementById("ronSwanson");
-var quoteDisplay = document.getElementById("quotes");
-
+// This function both displays the generated quote and notifies the user whether their previous choice was correct or incorrect. The notification times out after 2 seconds. 
 function displayQuote(quote) {
-    setTimeout(function () {
+    setTimeout(function() {
         answerDisplayEl.textContent = "";
     }, 2000);
     quoteDisplay.textContent = quote;
-    // for personQuoted trump = 0, kanye = 1, Swanson =2
-    // first quote should be displayed
-    // when page loads, their pictures and names should be displayed 
 }
-// Display box variables
-var welcomeBox = document.getElementById('welcome-box');
-var gameBox = document.getElementById('game-box');
-var scoreBox = document.getElementById('score-box');
-var highScores = document.getElementById('score-history-box');
 
-// WELCOME PAGE
-// When page loads display welcome message for the user
-// score and timer are not visible at this point
-
-// OPTIONAL FUNCTIONALITY: Add a quote from each of the quoted on the welcome screen
-// to give users an example of the game.
-
-
-// footer will contain names of the quoted and when clicked will
-// take you to their wikipedia page
-
-// display a button on screen that when clicked will start the game
-var playButton = document.querySelector('.play-button')
-playButton.addEventListener('click', function () {
+// This event listener waits for a user to click the Play button. Once clicked, the first quote is generated and the timer is started at 60 seconds. 
+playButton.addEventListener('click', function() {
     showGameScreen();
     setTime();
-    // callAPIs();
 });
 
-// hide welcome & score screen, display game screen
+// This function hides the welcome message and displays the game screen
 function showGameScreen() {
     gameBox.style.display = 'block';
     welcomeBox.style.display = 'none';
-    scoreBox.style.display = 'none';
-    highScores.style.display = 'none';
 };
 
-//MAIN PAGE
-// When page loads, score should be set to 0 and timer should start
-// counting down from 60 seconds
-var timerEl = document.querySelector(".timer");
-var answerDisplayEl = document.getElementById("answer-results");
-var secondsLeft = 60;
-var score = 0;
-var answer = 0;
-
+// This function both sets the timer at 60 seconds and starts the countdown.
 function setTime() {
     secondsleft = 60;
-    // reset all variables for replaying the game
-    // currentQuestion = 0; 
-    // initials = "";
-
-    // call function to hide welcome page
-    // call function to display 
-
-    // Sets interval in variable
-    var timerInterval = setInterval(function () {
+    // Sets interval as variable 
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
-
         if (secondsLeft <= 0) {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
@@ -202,155 +171,91 @@ function setTime() {
     }, 1000);
 };
 
-// when clicked, the picture or button (maybe a screenshot?) will determine what
-// the user answers
-
-// if the user chooses correctly, the amount of time on the timer is added 
-// to their score and a message pops up saying correct
-// if (correct answer) {
-//     score = score + secondsLeft;
-//     console.log("Your score is " + score);
-//     scoreEl.innerHTML = "Your score is " + score;
-// }
-
-// when clicked, the picture or button (maybe a screenshot?) will determine what
-// the user answers
-trumpImage.addEventListener("click", function (event) {
-
-    // var userChoice = event.target.textContent;
-    // if the user chooses correctly, the amount of time on the timer is added 
-    // to their score and a message pops up saying correct
+// When clicked, the picture determines the users answer
+trumpImage.addEventListener("click", function(event) {
+    // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 0) {
         answerDisplayEl.textContent = "Correct";
         answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
-    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
-    // deducted from the timer and a message pops up saying incorrect
-    // else { score = score - 10}
+    // If the user chooses incorrectly, they recieve 0 points and 10 seconds is deducted from the timer and a message is displayed indicating they chose incorrectly. 
     else {
         secondsLeft = secondsLeft - 10;
         answerDisplayEl.textContent = "Wrong  -10 seconds";
         answerDisplayEl.style.color = "red";
     }
-
     generateQuote();
-    //Display "right" or "wrong" for user
-    // answerResultEl.append(answerDisplayEl);
 })
 
-kanyeImage.addEventListener("click", function (event) {
-
-    // var userChoice = event.target.textContent;
-    // if the user chooses correctly, the amount of time on the timer is added 
-    // to their score and a message pops up saying correct
+// When clicked, the picture determines the users answer
+kanyeImage.addEventListener("click", function(event) {
+    // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 1) {
         answerDisplayEl.textContent = "Correct";
         answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
-    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
-    // deducted from the timer and a message pops up saying incorrect
-    // else { score = score - 10}
+    // If the user chooses incorrectly, they recieve 0 points and 10 seconds is deducted from the timer and a message is displayed indicating they chose incorrectly. 
     else {
         secondsLeft = secondsLeft - 10;
         answerDisplayEl.textContent = "Wrong  -10 seconds";
         answerDisplayEl.style.color = "red";
     }
-
     generateQuote();
-    //Display "right" or "wrong" for user
-    // answerResultEl.append(answerDisplayEl);
 })
 
-swansonImage.addEventListener("click", function (event) {
-
-    // var userChoice = event.target.textContent;
-    // if the user chooses correctly, the amount of time on the timer is added 
-    // to their score and a message pops up saying correct
+// When clicked, the picture determines the users answer
+swansonImage.addEventListener("click", function(event) {
+    // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 2) {
         answerDisplayEl.textContent = "Correct";
         answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
-    // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
-    // deducted from the timer and a message pops up saying incorrect
-    // else { score = score - 10}
+    // If the user chooses incorrectly, they recieve 0 points and 10 seconds is deducted from the timer and a message is displayed indicating they chose incorrectly. 
     else {
         secondsLeft = secondsLeft - 10;
         answerDisplayEl.textContent = "Wrong  -10 seconds";
         answerDisplayEl.style.color = "red";
     }
-
     generateQuote();
-    //Display "right" or "wrong" for user
-    // answerResultEl.append(answerDisplayEl);
 })
 
-
-
-
-// after a user selects an answer, display the next quote.
-
-// OPTIONAL FUNCTIONALITY: Exclude quotes that have already been displayed...
-
-// when timer reaches 0, game ends and high score screen opens
+// When the timer reaches 0, the game ends the game screen is hidden and the final score is displayed on the score screen. 
 function endGame() {
-    // clear timer
-    timerEl.innerHTML = "Time's Up!";
-    // hide questions screen, show score screen
     showEndScreen();
-    // display final score
     document.getElementById('final-score').append(score);
-    console.log(document.getElementById('final-score'));
-
-    // somewhere on the page the user is prompted to either go back to the
-    // welcome/rules page or to restart the game.
-    document.getElementById('play-again').addEventListener('click', function () {
-        console.log('play again clicked');
-        location.reload();
-    });
-
-    // When I click Save, my name and score are stored 
-    var saveButton = document.getElementById('submit-button')
-    saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
-    renderHighscores()
 };
 
-// footer will contain names of the quoted but the links will not work?
+// When the user clicks on the Play Again button, the page refreshes and the game starts over. 
+document.getElementById('play-again').addEventListener('click', function() {
+    location.reload();
+});
 
-// HIGH SCORE SCREEN
-// timer and score should be hidden at this point
+// When user clicks Save, their name and score are stored 
+var saveButton = document.getElementById('submit-button')
+saveButton.addEventListener("click", function() { saveScore(document.getElementById("name-input").value, score) })
+renderHighscores()
+
+// The game screen is hidden and the final score is displayed on the score screen. The users score history is also displayed with the option to save current score or clear score history. 
 function showEndScreen() {
     gameBox.style.display = 'none';
-    welcomeBox.style.display = 'none';
     scoreBox.style.display = 'block';
     highScores.style.display = 'block';
 };
-// when page loads, display the current score with user input below the 
-// score to give them the option to enter their name and save score.
 
-// when high score page loads, names and scores from local storage should 
-// be displayed on the page. 
-
-// footer will contain names of the quoted and when clicked will
-// take you to their wikipedia page
-
-// Save scores
-var playerScore = "";
-
+// This function is saving user input and score from the last game to local storage. 
 function saveScore(initials, score) {
-    // console.log(initials);
-    // console.log(score);
     var playerScores = JSON.parse(localStorage.getItem("playerScores"));
-    // uses initials as the key to look up the score
+    // Uses input as the key to look up the score
     if (!playerScores) {
         playerScores = {}
     };
-    // playerScores[initials] = Math.max(playerScores[initials], score)
+    // This always saves only the highest score for the user. 
     if (playerScores[initials]) {
         if (playerScores[initials] < score) {
             playerScores[initials] = score
@@ -358,17 +263,12 @@ function saveScore(initials, score) {
     } else {
         playerScores[initials] = score
     }
-    // playerScores[initials] = score > parseInt(playerScores[initials]) ? score : playerScores[initials];
-    // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
     localStorage.setItem("playerScores", JSON.stringify(playerScores));
-    // when the user clicks "save score" button their score and name is instantly displayed
-    // on the high score list
     renderHighscores();
 };
 
-// displays list of saved scores
+// This function displays the scores onto the page.
 function renderHighscores() {
-    // Use JSON.parse() to convert text to JavaScript object
     var playerScores = JSON.parse(localStorage.getItem("playerScores"));
     var scoreList = "";
     for (x in playerScores) {
@@ -376,22 +276,23 @@ function renderHighscores() {
     }
     document.getElementById("score-history").innerHTML = scoreList
 
+    // When the user clicks the clear scores button, this clears all scores that are currently stored in local storage and removes them from the page.
     var clearScoresButton = document.getElementById('clear-scores');
     if (clearScoresButton) {
-        clearScoresButton.addEventListener("click", function () {
+        clearScoresButton.addEventListener("click", function() {
             localStorage.clear();
             document.getElementById("score-history").innerHTML = '';
         })
     }
-
 };
-// button to display high scores which are saved in local storage located in the
-// top right of the nav bar
-var highScoreButton = document.getElementById('high-scores-display');
-highScoreButton.addEventListener('click', function () {
+// Without playing the game, users are able to click the High Scores button in the NavBar and see their score history. 
+highScoreButton.addEventListener('click', function() {
     renderHighscores();
     gameBox.style.display = 'none';
     welcomeBox.style.display = 'none';
     scoreBox.style.display = 'none';
     highScores.style.display = 'block';
 })
+
+// When page loads, this function is called to fetch APIs and fill quote arrays. 
+callAPIs();

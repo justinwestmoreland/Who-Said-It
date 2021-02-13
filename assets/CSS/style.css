@@ -1,13 +1,5 @@
-/* /*Style for Application here (: */
-
-/* body {
-    background-image: url("assets/images/main-background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-} */
-.top-bar{
-    background-color:transparent;
+.top-bar {
+    background-color: transparent;
 }
 
 .top-bar ul {
@@ -19,10 +11,8 @@ a,
     color: white;
     font-family: 'Comfortaa', cursive;
     cursor: pointer;
-    /* list-style: none; */
     list-style-type: none;
     font-weight: bold;
-
 }
 
 h1,
@@ -34,7 +24,6 @@ h2 {
     font-family: 'Bungee Shade', cursive;
     font-weight: bold;
 }
-
 
 button {
     background-color: whitesmoke;
@@ -76,6 +65,7 @@ img {
     font-family: 'Comfortaa', cursive;
     font-size: x-large;
 }
+
 #welcome-text {
     border-style: dotted;
     border-color: gold;
@@ -85,6 +75,7 @@ img {
     background-color: #00598A;
     font-family: 'Comfortaa', cursive;
 }
+
 #game-box {
     color: white;
     display: none;
@@ -95,7 +86,6 @@ img {
 #score-box {
     color: white;
     display: none;
-    /* font-family: 'Bungee Shade', cursive; */
     border-style: dotted;
     border-color: gold;
     border-radius: 10px;
@@ -110,6 +100,7 @@ img {
     font-size: 25px;
     padding: 10px;
 }
+
 #quote-box {
     background-color: transparent;
     color: white;
@@ -117,6 +108,7 @@ img {
     border-color: gold;
     border-width: thick;
     border-radius: 10px;
+    padding: 20px;
     background-color: #00598A;
     font-family: 'Comfortaa', cursive;
 }

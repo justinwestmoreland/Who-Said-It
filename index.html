@@ -6,15 +6,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Said It?</title>
-    <!-- Compressed CSS -->
+    <!-- Linking CSS Style Sheets -->
+    <!-- Foundation CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- Local Stylesheet -->
     <link rel="stylesheet" href="./assets/CSS/style.css">
 
-    <!-- Adding a background image -->
+    <!-- Link to Background Image -->
     <style>
         body {
             background-image: url("assets/images/main-background4.jpg");
@@ -23,7 +25,6 @@
             background-size: cover;
         }
     </style>
-
 </head>
 
 <body>
@@ -38,11 +39,10 @@
     </div>
     <div class="grid-x grid-padding-x align-center-middle text-center">
         <h1>Who Said It?</h1>
-
     </div>
     <div class="container">
 
-        <!-- Welcome box -->
+        <!-- Welcome Box -->
         <div id="welcome-box">
             <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="cell small-12 medium-6" id="welcome-text">We all know Donald Trump, Kanye West, and Ron Swanson - but how well do you remember what they've said? Play Who Said It and find out!<br><br>Click on a picture to guess who said it. The remaining time will be added to your score. The
@@ -54,26 +54,24 @@
             </div>
         </div>
 
-        <!-- game box -->
+        <!-- Game Box -->
         <div id="game-box">
             <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="cell medium-3">
-
                 </div>
-
                 <div class="cell medium-6" id="quote-box">
                     <div id="quotes" class="cell"></div>
                     <div id="answer-results" class="cell"></div>
                 </div>
 
-                <!-- quote box -->
+                <!-- Quote Box -->
                 <div class="cell medium-3">
                     <div class="cell medium-12 score">Score</div>
                     <div class="cell medium-12 timer">Timer</div>
                 </div>
             </div>
             <br>
-            <!-- answer choices  -->
+            <!-- Answer Choices  -->
             <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="cell small-4"><img id="donaldTrump" src="assets/images/Donald_Trump_Final.png"></div>
                 <div class="cell small-4"><img id="kanyeWest" src="assets/images/Kanye_West_Final.png"></div>
@@ -81,9 +79,8 @@
             </div>
         </div>
 
-        <!-- score screen -->
+        <!-- Score Screen -->
         <div>
-
             <div class="grid-x grid-padding-x align-center-middle text-center">
                 <div class="container" id="score-box">
                     <h2> You Scored: <span id="final-score"></span></h2>
@@ -99,9 +96,7 @@
                     <button id="clear-scores">Clear highscores</button>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
-
     </div>
 
     <!-- Compressed JavaScript -->

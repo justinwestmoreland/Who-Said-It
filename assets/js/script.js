@@ -119,9 +119,6 @@ function generateQuote() {
     } else if (randomNumber == 2) {
         displayedQuote = quoteObject.swanson.quotes[quoteNumber];
     }
-    console.log(quoteObject);
-    console.log(displayedQuote);
-    console.log(randomNumber);
     displayQuote(displayedQuote);
     quoteNumber++;
 }
@@ -132,6 +129,9 @@ var swansonImage = document.getElementById("ronSwanson");
 var quoteDisplay = document.getElementById("quotes");
 
 function displayQuote(quote) {
+    setTimeout(function () {
+        answerDisplayEl.textContent = "";
+    }, 2000);
     quoteDisplay.textContent = quote;
     // for personQuoted trump = 0, kanye = 1, Swanson =2
     // first quote should be displayed
@@ -159,7 +159,7 @@ var playButton = document.querySelector('.play-button')
 playButton.addEventListener('click', function () {
     showGameScreen();
     setTime();
-    callAPIs();
+    // callAPIs();
 });
 
 // hide welcome & score screen, display game screen
@@ -174,12 +174,12 @@ function showGameScreen() {
 // When page loads, score should be set to 0 and timer should start
 // counting down from 60 seconds
 var timerEl = document.querySelector(".timer");
+var answerDisplayEl = document.getElementById("answer-results");
 var secondsLeft = 60;
 var score = 0;
 var answer = 0;
 
 function setTime() {
-    console.log("Start button click");
     secondsleft = 60;
     // reset all variables for replaying the game
     // currentQuestion = 0; 
@@ -192,7 +192,6 @@ function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
-        // answerResultEl.innerHTML = "";
 
         if (secondsLeft <= 0) {
             // Stops execution of action at set interval
@@ -217,17 +216,14 @@ function setTime() {
 // when clicked, the picture or button (maybe a screenshot?) will determine what
 // the user answers
 trumpImage.addEventListener("click", function (event) {
-    console.log("trump clicked");
-    // answerResultEl.innerHTML = "";
 
-    var userChoice = event.target.textContent;
-    var answerDisplayEl = document.createElement("h3");
+    // var userChoice = event.target.textContent;
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
     if (randomNumber == 0) {
         answerDisplayEl.textContent = "Correct";
+        answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
-        console.log("Your score is " + score);
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
     // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
@@ -235,7 +231,8 @@ trumpImage.addEventListener("click", function (event) {
     // else { score = score - 10}
     else {
         secondsLeft = secondsLeft - 10;
-        answerDisplayEl.textContent = "Wrong";
+        answerDisplayEl.textContent = "Wrong  -10 seconds";
+        answerDisplayEl.style.color = "red";
     }
 
     generateQuote();
@@ -244,17 +241,14 @@ trumpImage.addEventListener("click", function (event) {
 })
 
 kanyeImage.addEventListener("click", function (event) {
-    console.log("kanye clicked");
-    // answerResultEl.innerHTML = "";
 
-    var userChoice = event.target.textContent;
-    var answerDisplayEl = document.createElement("h3");
+    // var userChoice = event.target.textContent;
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
     if (randomNumber == 1) {
         answerDisplayEl.textContent = "Correct";
+        answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
-        console.log("Your score is " + score);
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
     // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
@@ -262,7 +256,8 @@ kanyeImage.addEventListener("click", function (event) {
     // else { score = score - 10}
     else {
         secondsLeft = secondsLeft - 10;
-        answerDisplayEl.textContent = "Wrong";
+        answerDisplayEl.textContent = "Wrong  -10 seconds";
+        answerDisplayEl.style.color = "red";
     }
 
     generateQuote();
@@ -271,17 +266,14 @@ kanyeImage.addEventListener("click", function (event) {
 })
 
 swansonImage.addEventListener("click", function (event) {
-    console.log("swanson clicked");
-    // answerResultEl.innerHTML = "";
 
-    var userChoice = event.target.textContent;
-    var answerDisplayEl = document.createElement("h3");
+    // var userChoice = event.target.textContent;
     // if the user chooses correctly, the amount of time on the timer is added 
     // to their score and a message pops up saying correct
     if (randomNumber == 2) {
         answerDisplayEl.textContent = "Correct";
+        answerDisplayEl.style.color = "green";
         score = score + secondsLeft;
-        console.log("Your score is " + score);
         document.querySelector(".score").innerHTML = "Your score is " + score;
     }
     // if the user chooses incorrectly, they recieve 0 points and 10 seconds is 
@@ -289,13 +281,17 @@ swansonImage.addEventListener("click", function (event) {
     // else { score = score - 10}
     else {
         secondsLeft = secondsLeft - 10;
-        answerDisplayEl.textContent = "Wrong";
+        answerDisplayEl.textContent = "Wrong  -10 seconds";
+        answerDisplayEl.style.color = "red";
     }
 
     generateQuote();
     //Display "right" or "wrong" for user
     // answerResultEl.append(answerDisplayEl);
 })
+
+
+
 
 // after a user selects an answer, display the next quote.
 

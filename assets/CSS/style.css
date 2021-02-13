@@ -120,3 +120,7 @@ img {
     background-color: #00598A;
     font-family: 'Comfortaa', cursive;
 }
+
+#playBtn {
+    display: none;
+}

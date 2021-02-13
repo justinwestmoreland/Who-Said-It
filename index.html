@@ -65,6 +65,7 @@
 
                 <div class="cell medium-6" id="quote-box">
                     <div id="quotes" class="cell"></div>
+                    <div id="answer-results" class="cell"></div>
                 </div>
 
                 <!-- quote box -->
@@ -85,19 +86,25 @@
         <!-- score screen -->
         <div>
 
-            <div class="grid-x grid-padding-x align-center-middle text-center">
-                <div class="container" id="score-box">
+            <!-- <div class="grid-x grid-padding-x align-center-middle text-center"> -->
+            <div class="grid-x grid-padding-x align-center-middle text-center" id="score-box">
+                <div class="cell medium-3"> </div>
+                <div class="cell medium-6">
                     <h1> You Scored: <span id="final-score"></span></h1>
                     <input id="name-input" placeholder="Your name here" size="21" type="text">
                     <button id="submit-button">Submit</button>
                     <button id="play-again">Play Again!</button>
                 </div>
-                <div class="container" id="score-history-box">
-                    <div id="score-history">
-                    </div>
-                    <button id="clear-scores">Clear highscores</button>
-                </div>
+                <div class="cell medium-3"> </div>
             </div>
+            <div class="grid-x grid-padding-x align-center-middle text-center" id="score-history-box">
+                <div class="cell medium-3"> </div>
+                <div class="cell medium-6">
+                    <div id="score-history"></div>
+                </div>
+                <button id="clear-scores">Clear highscores</button>
+            </div>
+            <!-- </div> -->
         </div>
 
     </div>

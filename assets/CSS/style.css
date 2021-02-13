@@ -83,13 +83,16 @@ img {
     color: white;
     display: none;
     font-family: "Arial", "sans-serif";
-    border-style: dotted;
-    border-color: gold;
+    /* border-style: dotted;
+    border-color: gold; */
 }
 
 #score-history-box {
     color: white;
     display: none;
+    font-family: "Arial", "sans-serif";
+    /* border-style: dotted;
+    border-color: gold; */
 }
 #quote-box {
     background-color: transparent;

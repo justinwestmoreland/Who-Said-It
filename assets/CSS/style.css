@@ -48,15 +48,29 @@ button {
     font-family: 'Bungee Shade', cursive;
 }
 
-.timer,
-.score {
+.timer {
     color: white;
     text-align: right;
     font-family: 'Comfortaa', cursive;
     padding: 10px;
     font-weight: bold;
 }
-
+.score {
+    color: white;
+    text-align: left;
+    font-family: 'Comfortaa', cursive;
+    padding: 10px;
+    font-weight: bold;
+}
+#border {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid white;
+}
+#quotes {
+    padding: 10px;
+}
 img {
     display: block;
     margin-left: auto;
@@ -111,6 +125,7 @@ img {
     padding: 10px;
 }
 #quote-box {
+    margin-bottom: 20px;
     background-color: transparent;
     color: white;
     border-style: dotted;

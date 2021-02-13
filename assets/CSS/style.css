@@ -24,10 +24,6 @@ a,
 
 h1 {
     color: white;
-    font-family: 'Bungee', cursive;
-    border-style: dotted;
-    border-color: gold;
-    border-width: thick;
     padding: 10px;
     margin: 10px;
     font-family: 'Bungee Shade', cursive;
@@ -83,8 +79,6 @@ img {
     color: white;
     display: none;
     font-family: "Arial", "sans-serif";
-    border-style: dotted;
-    border-color: gold;
 }
 
 #score-history-box {

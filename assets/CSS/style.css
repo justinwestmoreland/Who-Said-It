@@ -18,29 +18,31 @@
 a,
 #high-scores-display {
     color: white;
-    font-family: 'Bungee Shade', cursive;
+    font-family: 'Comfortaa', cursive;
     cursor: pointer;
+    /* list-style: none; */
+    list-style-type: none;
+    font-weight: bold;
+
 }
 
-h1 {
+h1,
+h2 {
     color: white;
     font-family: 'Bungee', cursive;
-    border-style: dotted;
-    border-color: gold;
-    border-width: thick;
-    padding: 10px;
-    margin: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-family: 'Bungee Shade', cursive;
+    font-weight: bold;
 }
 
 
 button {
-    background-color: transparent;
-    color: whitesmoke;
+    background-color: whitesmoke;
+    color: #012951;
+    font-weight: bolder;
+    font-size: 25px;
     padding: 5px;
-    border-style: dotted;
-    border-color: gold;
-    border-width: thick;
     border-radius: 5px;
     margin: auto;
     font-family: 'Bungee Shade', cursive;
@@ -50,8 +52,9 @@ button {
 .score {
     color: white;
     text-align: right;
-    font-family: 'Bungee Shade', cursive;
+    font-family: 'Comfortaa', cursive;
     padding: 10px;
+    font-weight: bold;
 }
 
 img {
@@ -61,6 +64,8 @@ img {
     border-style: dotted;
     border-color: gold;
     border-width: thick;
+    border-radius: 5px;
+    width: 70%;
 }
 
 #welcome-box {
@@ -68,34 +73,50 @@ img {
     display: block;
     margin: 5px;
     padding: 5px;
-    font-family: "Arial", "sans-serif";
+    font-family: 'Comfortaa', cursive;
     font-size: x-large;
 }
-
+#welcome-text {
+    border-style: dotted;
+    border-color: gold;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #00598A;
+    font-family: 'Comfortaa', cursive;
+}
 #game-box {
     color: white;
     display: none;
-    font-family: "Arial", "sans-serif";
+    font-family: 'Comfortaa', cursive;
     font-size: x-large;
 }
 
 #score-box {
     color: white;
     display: none;
-    font-family: "Arial", "sans-serif";
+    /* font-family: 'Bungee Shade', cursive; */
     border-style: dotted;
     border-color: gold;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #00598A;
 }
 
 #score-history-box {
     color: white;
     display: none;
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    padding: 10px;
 }
 #quote-box {
     background-color: transparent;
     color: white;
-    font-family: "Arial", "sans-serif";
     border-style: dotted;
     border-color: gold;
     border-width: thick;
+    border-radius: 10px;
+    background-color: #00598A;
+    font-family: 'Comfortaa', cursive;
 }

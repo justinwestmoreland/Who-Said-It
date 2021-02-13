@@ -1,14 +1,5 @@
-/* /*Style for Application here (: */
-
-/* body {
-    background-image: url("assets/images/main-background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-
-} */
-.top-bar{
-    background-color:transparent;
+.top-bar {
+    background-color: transparent;
 }
 
 .top-bar ul {
@@ -20,10 +11,8 @@ a,
     color: white;
     font-family: 'Comfortaa', cursive;
     cursor: pointer;
-    /* list-style: none; */
     list-style-type: none;
     font-weight: bold;
-
 }
 
 h1,
@@ -36,7 +25,6 @@ h2 {
     font-weight: bold;
 }
 
-
 button {
     background-color: whitesmoke;
     color: #012951;
@@ -46,6 +34,7 @@ button {
     border-radius: 5px;
     margin: auto;
     font-family: 'Bungee Shade', cursive;
+    outline: none;
 }
 
 .timer {
@@ -71,13 +60,14 @@ button {
 #quotes {
     padding: 10px;
 }
+
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-style: dotted;
-    border-color: gold;
-    border-width: thick;
+    border-style: solid;
+    border-color: #DEB887;
+    border-width: 10px;
     border-radius: 5px;
     width: 70%;
 }
@@ -90,6 +80,7 @@ img {
     font-family: 'Comfortaa', cursive;
     font-size: x-large;
 }
+
 #welcome-text {
     border-style: dotted;
     border-color: gold;
@@ -99,6 +90,7 @@ img {
     background-color: #00598A;
     font-family: 'Comfortaa', cursive;
 }
+
 #game-box {
     color: white;
     display: none;
@@ -109,7 +101,6 @@ img {
 #score-box {
     color: white;
     display: none;
-    /* font-family: 'Bungee Shade', cursive; */
     border-style: dotted;
     border-color: gold;
     border-radius: 10px;
@@ -124,6 +115,7 @@ img {
     font-size: 25px;
     padding: 10px;
 }
+
 #quote-box {
     margin-bottom: 20px;
     background-color: transparent;
@@ -132,10 +124,17 @@ img {
     border-color: gold;
     border-width: thick;
     border-radius: 10px;
+    padding: 20px;
     background-color: #00598A;
     font-family: 'Comfortaa', cursive;
 }
 
 #playBtn {
     display: none;
+}
+
+@media (max-width: 1024px) {
+    img {
+        width: 100%;
+    }
 }

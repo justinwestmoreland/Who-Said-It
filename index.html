@@ -11,6 +11,8 @@
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css">
 
     <!-- Adding a background image -->
@@ -44,9 +46,10 @@
         <!-- Welcome box -->
         <div id="welcome-box">
             <div class="grid-x grid-padding-x align-center-middle text-center">
-                <div class="cell small-4">We all know Donald Trump, Kanye West, and Ron Swanson - but how well do you
-                    remember what they've said? Play Who Said It and find out!<br>Click on a picture to guess who said
-                    it. The remaining time will be added to your score. The game
+                <div class="cell small-6" id="welcome-text">We all know Donald Trump, Kanye West, and Ron Swanson - but
+                    how well do you remember what they've said? Play Who Said It and find out!<br><br>Click on a picture
+                    to
+                    guess who said it. The remaining time will be added to your score. The game
                     ends when the timer runs out, but be careful! Incorrect answers deduct 10 seconds from the timer!
                     Play again and try to beat your high score!
                 </div>
@@ -86,23 +89,20 @@
         <!-- score screen -->
         <div>
 
-            <!-- <div class="grid-x grid-padding-x align-center-middle text-center"> -->
-            <div class="grid-x grid-padding-x align-center-middle text-center" id="score-box">
-                <div class="cell medium-3"> </div>
-                <div class="cell medium-6">
-                    <h1> You Scored: <span id="final-score"></span></h1>
+            <div class="grid-x grid-padding-x align-center-middle text-center">
+                <div class="container" id="score-box">
+                    <h2> You Scored: <span id="final-score"></span></h2>
                     <input id="name-input" placeholder="Your name here" size="21" type="text">
                     <button id="submit-button">Submit</button>
                     <button id="play-again">Play Again!</button>
                 </div>
-                <div class="cell medium-3"> </div>
             </div>
-            <div class="grid-x grid-padding-x align-center-middle text-center" id="score-history-box">
-                <div class="cell medium-3"> </div>
-                <div class="cell medium-6">
-                    <div id="score-history"></div>
+            <div class="grid-x grid-padding-x align-center-middle">
+                <div class="container" id="score-history-box">
+                    <div id="score-history">
+                    </div>
+                    <button id="clear-scores">Clear highscores</button>
                 </div>
-                <button id="clear-scores">Clear highscores</button>
             </div>
             <!-- </div> -->
         </div>

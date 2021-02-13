@@ -137,14 +137,14 @@ function generateQuote() {
 
 // This function both displays the generated quote and notifies the user whether their previous choice was correct or incorrect. The notification times out after 2 seconds. 
 function displayQuote(quote) {
-    setTimeout(function () {
+    setTimeout(function() {
         answerDisplayEl.textContent = "";
     }, 1000);
     quoteDisplay.textContent = quote;
 }
 
 // This event listener waits for a user to click the Play button. Once clicked, the first quote is generated and the timer is started at 60 seconds. 
-playButton.addEventListener('click', function () {
+playButton.addEventListener('click', function() {
     showGameScreen();
     setTime();
 });
@@ -159,7 +159,7 @@ function showGameScreen() {
 function setTime() {
     secondsleft = 60;
     // Sets interval as variable 
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft + " seconds left.";
         if (secondsLeft <= 0) {
@@ -172,7 +172,7 @@ function setTime() {
 };
 
 // When clicked, the picture determines the users answer
-trumpImage.addEventListener("click", function (event) {
+trumpImage.addEventListener("click", function(event) {
     console.log("trump");
     // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 0) {
@@ -191,7 +191,7 @@ trumpImage.addEventListener("click", function (event) {
 })
 
 // When clicked, the picture determines the users answer
-kanyeImage.addEventListener("click", function (event) {
+kanyeImage.addEventListener("click", function(event) {
     // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 1) {
         answerDisplayEl.textContent = "Correct";
@@ -209,7 +209,7 @@ kanyeImage.addEventListener("click", function (event) {
 })
 
 // When clicked, the picture determines the users answer
-swansonImage.addEventListener("click", function (event) {
+swansonImage.addEventListener("click", function(event) {
     // If the user chooses correctly, the amount of time on the timer is added to their score and a message is displayed indicating they chose correctly
     if (randomNumber == 2) {
         answerDisplayEl.textContent = "Correct";
@@ -233,13 +233,13 @@ function endGame() {
 };
 
 // When the user clicks on the Play Again button, the page refreshes and the game starts over. 
-document.getElementById('play-again').addEventListener('click', function () {
+document.getElementById('play-again').addEventListener('click', function() {
     location.reload();
 });
 
 // When user clicks Save, their name and score are stored 
 var saveButton = document.getElementById('submit-button')
-saveButton.addEventListener("click", function () { saveScore(document.getElementById("name-input").value, score) })
+saveButton.addEventListener("click", function() { saveScore(document.getElementById("name-input").value, score) })
 renderHighscores()
 
 // The game screen is hidden and the final score is displayed on the score screen. The users score history is also displayed with the option to save current score or clear score history. 
@@ -280,14 +280,14 @@ function renderHighscores() {
     // When the user clicks the clear scores button, this clears all scores that are currently stored in local storage and removes them from the page.
     var clearScoresButton = document.getElementById('clear-scores');
     if (clearScoresButton) {
-        clearScoresButton.addEventListener("click", function () {
+        clearScoresButton.addEventListener("click", function() {
             localStorage.clear();
             document.getElementById("score-history").innerHTML = '';
         })
     }
 };
 // Without playing the game, users are able to click the High Scores button in the NavBar and see their score history. 
-highScoreButton.addEventListener('click', function () {
+highScoreButton.addEventListener('click', function() {
     renderHighscores();
     gameBox.style.display = 'none';
     welcomeBox.style.display = 'none';

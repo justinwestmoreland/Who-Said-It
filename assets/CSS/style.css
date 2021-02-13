@@ -44,6 +44,7 @@ button {
     padding: 10px;
     font-weight: bold;
 }
+
 .score {
     color: white;
     text-align: left;
@@ -51,12 +52,14 @@ button {
     padding: 10px;
     font-weight: bold;
 }
+
 #border {
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid white;
 }
+
 #quotes {
     padding: 10px;
 }
@@ -136,5 +139,8 @@ img {
 @media (max-width: 1024px) {
     img {
         width: 100%;
+    }
+    .timer {
+        text-align: left;
     }
 }

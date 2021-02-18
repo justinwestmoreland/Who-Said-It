@@ -23,7 +23,7 @@ If their answer is correct, the amount of time left in the timer will be added t
 At the end, the user will have the option to submit their name and highs core.
 
 ## Usage
-Open the application [Who Said It?](https://justinwestmoreland.github.io/Project-1/) in your browser. Read the instructions, then click the "Play!" button to start the game. Each picture works as a button. Select your answer for the displayed quote. Once the timer runs out, you will see the High Score screen in which you will be able to save your results.
+Open the application [Who Said It?](https://justinwestmoreland.github.io/Who-Said-It/) in your browser. Read the instructions, then click the "Play!" button to start the game. Each picture works as a button. Select your answer for the displayed quote. Once the timer runs out, you will see the High Score screen in which you will be able to save your results.
 
 ## Mock-Up
 
